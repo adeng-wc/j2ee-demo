@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<mbeans-descriptors>-
+    <mbean domain="commons-modeler" description="Factory for MBeans and corresponding components"
+           type="com.wengcheng.jmx.commonsmodeler.ModelCar" name="ModelCar">
+        <attribute description="the color" type="java.lang.String" name="color" id="color"></attribute>
+        <operation description="get Color" name="getColor" returnType="java.lang.String" impact="ACTION"></operation> -
+        <operation description="set Color" name="setColor" returnType="void" impact="ACTION">
+            <parameter description="color" type="java.lang.String" name="color"/>
+        </operation>
+        <operation description="drive" name="drive" returnType="void" impact="ACTION"></operation>
+    </mbean>
+</mbeans-descriptors>
