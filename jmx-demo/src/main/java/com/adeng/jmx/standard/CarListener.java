@@ -1,4 +1,4 @@
-package com.adeng.demo.jmx.standard;
+package com.adeng.jmx.standard;
 
 import javax.management.Notification;
 import javax.management.NotificationListener;

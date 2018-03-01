@@ -18,6 +18,8 @@ import java.util.TreeSet;
 import static java.lang.Thread.sleep;
 
 /**
+ * Java RMI( Java Remote Method Invocation )
+ *
  * @Author: Adengdeng
  * @Date: Create in 下午11:35 2018
  */

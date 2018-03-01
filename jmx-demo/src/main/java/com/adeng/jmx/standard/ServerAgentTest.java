@@ -1,4 +1,4 @@
-package com.adeng.demo.jmx.standard;
+package com.adeng.jmx.standard;
 
 import javax.management.MBeanServer;
 import javax.management.ObjectInstance;
@@ -61,6 +61,7 @@ public class ServerAgentTest {
             Master master = new Master();
             ObjectInstance objectInstance2 =
                     mBeanServer.registerMBean(master, new ObjectName("jmxBean:name=master"));
+
             /* 在Master上添加CarListener的监听对象 */
             master.addNotificationListener(new CarListener(), null, car);
             Thread.sleep(60 * 60 * 1000);

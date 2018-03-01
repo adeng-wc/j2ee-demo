@@ -1,4 +1,4 @@
-package com.adeng.demo.jmx.commonsmodeler;
+package com.adeng.jmx.model;
 
 /**
  * JMX 模板类型
@@ -18,6 +18,6 @@ public class ModelCar {
     }
 
     public void drive() {
-        System.out.println("Body you can drive my" + color + "car.");
+        System.out.println("Body you can drive my " + color + " car.");
     }
 }
