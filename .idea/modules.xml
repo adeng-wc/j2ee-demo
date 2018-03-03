@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/codewars/codewars.iml" filepath="$PROJECT_DIR$/codewars/codewars.iml" />
+      <module fileurl="file://$PROJECT_DIR$/j2ee-demo.iml" filepath="$PROJECT_DIR$/j2ee-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jmx-demo/jmx-demo.iml" filepath="$PROJECT_DIR$/jmx-demo/jmx-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jsr-demo.iml" filepath="$PROJECT_DIR$/jsr-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" filepath="$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" />
       <module fileurl="file://$PROJECT_DIR$/servlet-demo/servlet-demo.iml" filepath="$PROJECT_DIR$/servlet-demo/servlet-demo.iml" />
     </modules>
   </component>

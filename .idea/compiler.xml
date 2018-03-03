@@ -6,14 +6,18 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="codewars" />
         <module name="jmx-demo" />
+        <module name="my-mvcframework" />
         <module name="servlet-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jmx-demo" target="1.5" />
-      <module name="jsr-demo" target="1.5" />
-      <module name="servlet-demo" target="1.5" />
+      <module name="codewars" target="1.8" />
+      <module name="j2ee-demo" target="1.8" />
+      <module name="jmx-demo" target="1.8" />
+      <module name="my-mvcframework" target="1.8" />
+      <module name="servlet-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
