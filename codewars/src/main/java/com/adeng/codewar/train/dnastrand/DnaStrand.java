@@ -11,6 +11,7 @@ import java.util.stream.StreamSupport;
 public class DnaStrand {
 
 
+
     /**
      * 自定义CharArraySpliterator
      */
