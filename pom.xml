@@ -13,6 +13,7 @@
         <module>servlet-demo</module>
         <module>my-mvcframework</module>
         <module>codewars</module>
+        <module>design-parttens-demo</module>
     </modules>
 
 
