@@ -12,4 +12,12 @@
     <artifactId>design-parttens-demo</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>3.2.6</version>
+        </dependency>
+    </dependencies>
+
 </project>
