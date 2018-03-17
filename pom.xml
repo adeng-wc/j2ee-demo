@@ -14,6 +14,7 @@
         <module>my-mvcframework</module>
         <module>codewars</module>
         <module>design-parttens-demo</module>
+        <module>jdk-source-remark</module>
     </modules>
 
 
