@@ -448,7 +448,12 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                         new Node<K,V>(hash, key, value, null)))
                     break;                   // no lock when adding to empty bin
             }
-            //如果计算出来的 f.hash == -1，表示正在做数组转移
+            /*
+                ForwardingNode 构造函数中指定hash为MOVED
+             *  super(MOVED, null, null, null);
+             *
+             *  如果计算出来的 f.hash == -1，表示正在做数组转移
+             */
             else if ((fh = f.hash) == MOVED) {
                 //这里有帮助扩容
                 tab = helpTransfer(tab, f);
@@ -1567,6 +1572,9 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
     /* ---------------- Table Initialization and Resizing -------------- */
 
     /**
+     *
+     * 计算一个扩容校验码
+     *
      * Integer.numberOfLeadingZeros(n) 计算首部0的个数
      * {@link com.adeng.java.util.concurrent.NumberOfLeadingZerosTest}
      * 如果高位没有0，则 1 << 15位
@@ -1697,14 +1705,19 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
      */
     final Node<K,V>[] helpTransfer(Node<K,V>[] tab, Node<K,V> f) {
         Node<K,V>[] nextTab; int sc;
+        /*
+             当前 table 不为 null , 且 f 为 forwardingNode 结点 ， 且存在下一张表
+         */
         if (tab != null && (f instanceof ForwardingNode) &&
                 (nextTab = ((ForwardingNode<K,V>)f).nextTable) != null) {
             int rs = resizeStamp(tab.length);
-            while (nextTab == nextTable && table == tab &&
-                    (sc = sizeCtl) < 0) {
+            //当 sizeCtl < 0 时，表示有线程在 transfer().
+            //什么时候 sizeCtl < 0 ?
+            while (nextTab == nextTable && table == tab && (sc = sizeCtl) < 0) {
                 if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
                         sc == rs + MAX_RESIZERS || transferIndex <= 0)
                     break;
+                //用CAS 更新了SIZECTL
                 if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1)) {
                     transfer(tab, nextTab);
                     break;
@@ -1844,6 +1857,8 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                 if (finishing) {
                     nextTable = null;
                     table = nextTab;
+                    //扩大一倍，再减去原来的二分之一，也就是四分之三
+                    //16 左移 32  - 16右移 8 = 24
                     sizeCtl = (n << 1) - (n >>> 1);
                     return;
                 }
