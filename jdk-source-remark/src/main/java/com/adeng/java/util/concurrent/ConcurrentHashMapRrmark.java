@@ -35,6 +35,11 @@ import java.util.function.ToIntFunction;
 import java.util.function.ToLongBiFunction;
 import java.util.function.ToLongFunction;
 
+/**
+ * 1.8 ConcurrentHashMap 中文注释
+ * @param <K>
+ * @param <V>
+ */
 public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
         implements ConcurrentMap<K,V>, Serializable {
     private static final long serialVersionUID = 7249069246763182397L;
@@ -81,11 +86,18 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
      * 最小的红黑数容量
      */
     static final int MIN_TREEIFY_CAPACITY = 64;
-
+    /**
+        每个转移步骤的最小重新分配数量。 范围被细分为允许多个调整器线程。
+        该值用作避免遇到过多内存争用的大小限制的下限。 该值应至少为DEFAULT_CAPACITY。
+     */
     private static final int MIN_TRANSFER_STRIDE = 16;
 
     private static int RESIZE_STAMP_BITS = 16;
 
+    /**
+     *
+     * 1 左移 16 位， 减去 1
+     */
     private static final int MAX_RESIZERS = (1 << (32 - RESIZE_STAMP_BITS)) - 1;
 
     private static final int RESIZE_STAMP_SHIFT = 32 - RESIZE_STAMP_BITS;
@@ -257,6 +269,8 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
      * Base counter value, used mainly when there is no contention,
      * but also as a fallback during table initialization
      * races. Updated via CAS.
+     *
+     * 基本计数器值，主要用于没有争用时，也可用作表初始化比赛期间的回退。 通过CAS更新。
      */
     private transient volatile long baseCount;
 
@@ -272,6 +286,8 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
 
     /**
      * The next table index (plus one) to split while resizing.
+     *
+     * 调整时候下一个表的索引
      */
     private transient volatile int transferIndex;
 
@@ -282,6 +298,8 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
 
     /**
      * Table of counter cells. When non-null, size is a power of 2.
+     *
+     * table的计数组件
      */
     private transient volatile CounterCell[] counterCells;
 
@@ -395,11 +413,9 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
     }
 
     /**
-     * 往Map中添加K, V
+     * 往Map中添加K, V.
      *
-     * @param key
-     * @param value
-     * @return
+     * 从这里开始分析。
      */
     public V put(K key, V value) {
         return putVal(key, value, false);
@@ -415,28 +431,45 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
         int binCount = 0;
         //这里是用了死循环,并同时把 table 赋值给了 tab
         for (Node<K,V>[] tab = table;;) {
+            //定义了节点变量 f, tab长度 n, tab中的下标 i, f的hash值 fh
             Node<K,V> f; int n, i, fh;
+            // //如果tab为空，初始化table
             if (tab == null || (n = tab.length) == 0)
-                //如果tab为空，初始化table
+                //初始化table
                 tab = initTable();
-            //通过hash和tab - 1，判断数组中是否有当前hash桶
+            /*
+                n=2^x,是2的倍数，(n - 1) & hash = hash % 2^x,所以i是hash取余数的结果
+
+                f是当前数组下标i的节点
+             */
             else if ((f = tabAt(tab, i = (n - 1) & hash)) == null) {
-                //如果不存在，则用CAS添加当前数据节点到table中
+                //如果数组中节点为null，则用CAS添加当前数据节点到table中
                 if (casTabAt(tab, i, null,
                         new Node<K,V>(hash, key, value, null)))
                     break;                   // no lock when adding to empty bin
             }
             //如果计算出来的 f.hash == -1，表示正在做数组转移
-            else if ((fh = f.hash) == MOVED)
+            else if ((fh = f.hash) == MOVED) {
+                //这里有帮助扩容
                 tab = helpTransfer(tab, f);
-                //hash计算后相同
+            }
+            //hash计算后相同
+            //如果计算出来数组节点不为null
             else {
+                //用于保存旧值
                 V oldVal = null;
                 //持有hash桶数组中的节点锁
                 synchronized (f) {
                     //判断当前头结点是否和数组下标i的节点相同
                     if (tabAt(tab, i) == f) {
+                        /*
+                            fh是头结点的hash，大于等于0就往链路中尾部添加。
+
+                            否则就判断是否是 f instanceof TreeBin ，
+                            所以，fh是用来判断数组节点是链表还是红黑树的。
+                         */
                         if (fh >= 0) {
+                            //赋值binCount 为 1
                             binCount = 1;
                             //遍历数组节点后面的数据，每遍历一次binCount + 1，也就是说，binCount是链路中节点的计数
                             for (Node<K,V> e = f;; ++binCount) {
@@ -464,7 +497,9 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                         //判断当前数组中的f是不是TreeBin，也就是红黑树
                         else if (f instanceof TreeBin) {
                             Node<K,V> p;
+                            //binCount 赋值为2，这里是红黑树，如果binCount为2，就表示红黑树
                             binCount = 2;
+                            //将节点添加到红黑树中
                             if ((p = ((TreeBin<K,V>)f).putTreeVal(hash, key,
                                     value)) != null) {
                                 oldVal = p.val;
@@ -476,8 +511,9 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                 }
                 //binCount不等0，说明数据中的节点是匹配了，找后面的链表进行equals方法了
                 if (binCount != 0) {
-                    //如果链路中的节点数 >= 8，转换成红黑树
+                    //如果链路中的节点数 >= 8，转换成红黑树，如果已经是红黑树那，binCount就一直是2
                     if (binCount >= TREEIFY_THRESHOLD)
+                        //将链表转换成红黑树
                         treeifyBin(tab, i);
                     //如果有老的节点，就返回
                     if (oldVal != null)
@@ -487,7 +523,7 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
             }
         }
 
-        //增加统计计数
+        //增加统计计数, 同时又扩容的功能
         addCount(1L, binCount);
         return null;
     }
@@ -1531,36 +1567,51 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
     /* ---------------- Table Initialization and Resizing -------------- */
 
     /**
-     * Returns the stamp bits for resizing a table of size n.
-     * Must be negative when shifted left by RESIZE_STAMP_SHIFT.
+     * Integer.numberOfLeadingZeros(n) 计算首部0的个数
+     * {@link com.adeng.java.util.concurrent.NumberOfLeadingZerosTest}
+     * 如果高位没有0，则 1 << 15位
+     *
+     * Integer.numberOfLeadingZeros(n) 与 1 << (RESIZE_STAMP_BITS - 1) 做或运算，没明白？
      */
     static final int resizeStamp(int n) {
         return Integer.numberOfLeadingZeros(n) | (1 << (RESIZE_STAMP_BITS - 1));
     }
 
     /**
-     * 使用记录在sizeCtl 的size初始化table.
+     * 初始化table.
      */
     private final Node<K,V>[] initTable() {
+        //临时的tab对象， sc
         Node<K,V>[] tab; int sc;
+        //如果局部变量 table 为空，或数组长度为0，就进去初始化
         while ((tab = table) == null || tab.length == 0) {
-            //如果sizeCtl 小于0，说明还没计算完成， Thread.yield()释放cpu
+            //如果sizeCtl 小于0，说明还没计算完成，并同时将sizeCtl 赋值给sc
             if ((sc = sizeCtl) < 0)
-                Thread.yield(); // lost initialization race; just spin
-                //使用CAS
+                // Thread.yield()释放cpu
+                Thread.yield();
+                //使用CAS，将SIZECTL设置为 -1，表示正在初始化，
             else if (U.compareAndSwapInt(this, SIZECTL, sc, -1)) {
                 try {
+                    /*
+                        继续判断，为什么要继续判断？两个线程同时初始化。
+
+                        因为sizeCtl是volatile的，所以在finally执行之前，
+                        U.compareAndSwapInt(this, SIZECTL, sc, -1) 都是有可能成功的。
+                        所以这里加了判空
+                     */
                     if ((tab = table) == null || tab.length == 0) {
-                        //如果sc <= 0，则使用默认的16
+                        //如果sc <= 0，则使用默认的16，第一次是默认的
                         int n = (sc > 0) ? sc : DEFAULT_CAPACITY;
+                        //构造16个临时的数组节点
                         @SuppressWarnings("unchecked")
                         Node<K,V>[] nt = (Node<K,V>[])new Node<?,?>[n];
+                        //将临时节点赋值给table
                         table = tab = nt;
                         //16 - 4 = 12， n >>> 2 表示 n 除以4，最后差值，是n的四分之三
                         sc = n - (n >>> 2);
                     }
                 } finally {
-                    //第一次创建size为16的table，sizeCtl变12
+                    //第一次创建size为16的table，sizeCtl变12，初始化完成
                     sizeCtl = sc;
                 }
                 break;
@@ -1570,42 +1621,71 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
     }
 
     /**
-     *
+        增加数量，如果表格太小而没有调整大小，则启动传输。
+        如果已经调整大小，有助于在工作可用时执行转移。
+        转移后重新检查占用情况，以确定是否已经需要调整大小，因为重新调整是滞后的。
+
      * @param x the count to add
      * @param check if <0, don't check resize, if <= 1 only check if uncontended
      */
     private final void addCount(long x, int check) {
         CounterCell[] as; long b, s;
+        /*
+            counterCells 是table的计数组件，
+            as不为null，或者 用CAS更新计数不成功
+         */
         if ((as = counterCells) != null ||
                 !U.compareAndSwapLong(this, BASECOUNT, b = baseCount, s = b + x)) {
+            //
             CounterCell a; long v; int m;
+            //
             boolean uncontended = true;
             if (as == null || (m = as.length - 1) < 0 ||
                     (a = as[ThreadLocalRandom.getProbe() & m]) == null ||
-                    !(uncontended =
-                            U.compareAndSwapLong(a, CELLVALUE, v = a.value, v + x))) {
+                    !(uncontended =  U.compareAndSwapLong(a, CELLVALUE, v = a.value, v + x))) {
+                //暂时认为是添加总计数（原子操作）
                 fullAddCount(x, uncontended);
                 return;
             }
             if (check <= 1)
                 return;
+            //从名字可以看出是存入数据的总数
             s = sumCount();
         }
+        //如果添加，binCount >= 0
         if (check >= 0) {
             Node<K,V>[] tab, nt; int n, sc;
+            /*
+                如果总数大于等于sizeCtl，并且table不为null，并且数组长度小于 1 << 30，就一直循环.
+
+                第一次n是16的情况下，sizeCtl是12，是四分之三，也就是如果超过总量的四分之三就要扩容。
+                也就是说下面就是扩容的流程。
+             */
             while (s >= (long)(sc = sizeCtl) && (tab = table) != null &&
                     (n = tab.length) < MAXIMUM_CAPACITY) {
+                // n是16，返回 32795，暂时不明白
                 int rs = resizeStamp(n);
+                //表还没初始化，sc小于0，还有什么情况下 sc < 0 ?
                 if (sc < 0) {
+                    /**
+                     * 这里的条件是？下面的具体意义
+                     *
+                     * transferIndex <= 0
+                     * 或者 nextTable == null
+                     * 或者 sc == rs + 1
+                     * 或者 (sc >>> RESIZE_STAMP_SHIFT) != rs
+                     */
                     if ((sc >>> RESIZE_STAMP_SHIFT) != rs || sc == rs + 1 ||
                             sc == rs + MAX_RESIZERS || (nt = nextTable) == null ||
                             transferIndex <= 0)
+                        //这里跳出循环
                         break;
                     if (U.compareAndSwapInt(this, SIZECTL, sc, sc + 1))
                         transfer(tab, nt);
                 }
-                else if (U.compareAndSwapInt(this, SIZECTL, sc,
-                        (rs << RESIZE_STAMP_SHIFT) + 2))
+                //sc >= 0,
+                else if (U.compareAndSwapInt(this, SIZECTL, sc,(rs << RESIZE_STAMP_SHIFT) + 2))
+                    //扩容的具体方法
                     transfer(tab, null);
                 s = sumCount();
             }
@@ -1695,8 +1775,10 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
      */
     private final void transfer(Node<K,V>[] tab, Node<K,V>[] nextTab) {
         int n = tab.length, stride;
+        //
         if ((stride = (NCPU > 1) ? (n >>> 3) / NCPU : n) < MIN_TRANSFER_STRIDE)
             stride = MIN_TRANSFER_STRIDE; // subdivide range
+        //nextTab为null，
         if (nextTab == null) {            // initiating
             try {
                 //创建 n << 1 的数组
@@ -1708,6 +1790,7 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                 return;
             }
             nextTable = nextTab;
+            //在这里给 transferIndex 赋值 ，n是数组的长度，那transferIndex就是要转移的数组下标
             transferIndex = n;
         }
         int nextn = nextTab.length;
@@ -1720,10 +1803,14 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
         //bound = 0 初始化边界为0
         for (int i = 0, bound = 0;;) {
             Node<K,V> f; int fh;
-            //
+            //advance = true进入循环
             while (advance) {
                 int nextIndex, nextBound;
-                //
+                /*
+                    如果i >= bound
+                    或者finishing 。
+                    bound 在下面赋值，是transferIndex - stride（最小转移单元），也就是说每次转移table中连续的一部分节点
+                 */
                 if (--i >= bound || finishing)
                     advance = false;
                 //在这里将transferIndex 赋值给 nextIndex，并且 nextIndex <= 0 才进入循环
@@ -1732,16 +1819,26 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                     advance = false;
                 }
                 //计算nextBound 并赋值，同时使用CAS
-                else if (U.compareAndSwapInt
-                        (this, TRANSFERINDEX, nextIndex,
-                                nextBound = (nextIndex > stride ?
-                                        nextIndex - stride : 0))) {
-                    //赋值下一个边界
+                /*
+                   CAS新的值是：如果nextIndex > stride,就返回 nextIndex - stride 的差。
+                   nextIndex 是要转移的数组的索引下标，  stride 返回的是MIN_TRANSFER_STRIDE，最新转移的单元。
+
+                 */
+                else if (U.compareAndSwapInt (this, TRANSFERINDEX, nextIndex,
+                                nextBound = (nextIndex > stride ?  nextIndex - stride : 0))) {
+                    //赋值下一个边界，nextBound 是要转移数组减去最小转移单元的边界
                     bound = nextBound;
+                    //nextIndex - 1 ，也就是原数组从后面开始遍历
                     i = nextIndex - 1;
                     advance = false;
                 }
             }
+            /*
+                i < 0
+                i >= n
+                i + n >= nextn  nextn 是扩容后数组的长度
+                所以这里是转移完成后的流程
+             */
             if (i < 0 || i >= n || i + n >= nextn) {
                 int sc;
                 if (finishing) {
@@ -1757,28 +1854,53 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                     i = n; // recheck before commit
                 }
             }
-            //
+            //tab是扩容之前的table, 如果当前位置的节点是null，就直接把ForwardingNode修改到该节点
+            //f 是在这里赋值的
             else if ((f = tabAt(tab, i)) == null)
-                //通过CAS将重新生成的数组修改到原来的数组上，此处的节点是null
                 advance = casTabAt(tab, i, null, fwd);
-            //
+            //正在转移
             else if ((fh = f.hash) == MOVED)
                 advance = true; // already processed
-            //
+            //要替换的节点不为null
             else {
                 synchronized (f) {
                     if (tabAt(tab, i) == f) {
+                        //ln  = 地位节点   hn = 高位节点
                         Node<K,V> ln, hn;
+                        //这里是链表
                         if (fh >= 0) {
+                            /*
+                                节点的hash & n,
+                                fh = 759543613, 也是10110101000101101101110011 1101
+                                n = 16 ,也是                                 1 0000
+
+                                n = 2^x
+                                runBit是取 Hash的x位, runBit 只能是 0 或 非零。
+                                runBit位0，表示节点高位时0，n扩大一倍的话，也就是10 0000，利用Hash & (n - 1) 计算桶位置的话是不变的。
+                                非零，也就是hash 取余 会变化，需要重新分桶。
+
+                                 还记得之前获取桶下标的时候是 Hash & (n - 1),
+                             */
                             int runBit = fh & n;
+                            //f是数组中的节点,
                             Node<K,V> lastRun = f;
+                            //遍历节点的链表
                             for (Node<K,V> p = f.next; p != null; p = p.next) {
+                                //计算链表中节点的hash & n
                                 int b = p.hash & n;
+                                //b 和 runBit 不一样，说明这个链表中有需要重新计算桶位置的
                                 if (b != runBit) {
+                                    /*
+                                        如果链表中每两个节点都不一样（指p.hash & n），那lastRun就是相当于链表中的分界点，
+                                        能保证lastRun后面的节点都是相同类型，要么不需要重新计算桶位，要么需要重新计算。
+                                     */
                                     runBit = b;
                                     lastRun = p;
                                 }
                             }
+                            /*
+                                runBit == 0 表示，桶位不变
+                             */
                             if (runBit == 0) {
                                 ln = lastRun;
                                 hn = null;
@@ -1787,18 +1909,27 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                                 hn = lastRun;
                                 ln = null;
                             }
+                            /*
+                                从头节点开始遍历，一直到lastRun，将链表中的节点一分为二
+                             */
                             for (Node<K,V> p = f; p != lastRun; p = p.next) {
                                 int ph = p.hash; K pk = p.key; V pv = p.val;
+                                //(ph & n) == 0 桶位不变的链表
                                 if ((ph & n) == 0)
                                     ln = new Node<K,V>(ph, pk, pv, ln);
                                 else
                                     hn = new Node<K,V>(ph, pk, pv, hn);
                             }
+                            //在nextTable的i位置上插入一个链表
                             setTabAt(nextTab, i, ln);
+                            //在nextTable的i+n的位置上插入另一个链表
                             setTabAt(nextTab, i + n, hn);
+                            //在table的i位置上插入forwardNode节点  表示已经处理过该节点
                             setTabAt(tab, i, fwd);
+                            //设置advance为true 返回到上面的while循环中 就可以执行i--操作
                             advance = true;
                         }
+                        //这里是红黑树
                         else if (f instanceof TreeBin) {
                             TreeBin<K,V> t = (TreeBin<K,V>)f;
                             TreeNode<K,V> lo = null, loTail = null;
@@ -1825,6 +1956,7 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                                     ++hc;
                                 }
                             }
+                            //拆分红黑树的时候，判断节点总数是否小于等于6，是就变链表
                             ln = (lc <= UNTREEIFY_THRESHOLD) ? untreeify(lo) :
                                     (hc != 0) ? new TreeBin<K,V>(lo) : t;
                             hn = (hc <= UNTREEIFY_THRESHOLD) ? untreeify(hi) :
@@ -1955,11 +2087,13 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
         if (tab != null) {
             //数组长度小于64
             if ((n = tab.length) < MIN_TREEIFY_CAPACITY)
-                //尝试扩容table，左移1位，扩大两倍
+                //尝试扩容table，左移1位，扩大两倍,如果数组长度没有达到64，就通过扩容数组长度来分担
                 tryPresize(n << 1);
+            //赋值b，数组中的节点
             else if ((b = tabAt(tab, index)) != null && b.hash >= 0) {
                 synchronized (b) {
                     if (tabAt(tab, index) == b) {
+                        //构建红黑树
                         TreeNode<K,V> hd = null, tl = null;
                         for (Node<K,V> e = b; e != null; e = e.next) {
                             TreeNode<K,V> p =
@@ -1971,6 +2105,7 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
                                 tl.next = p;
                             tl = p;
                         }
+                        //将原来数组节点和红黑树节点替换
                         setTabAt(tab, index, new TreeBin<K,V>(hd));
                     }
                 }

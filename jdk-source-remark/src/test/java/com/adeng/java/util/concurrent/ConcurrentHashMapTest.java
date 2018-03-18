@@ -7,11 +7,11 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class ConcurrentHashMapTest {
 
-    public static class Key{
+    public static class Key {
 
         @Override
         public int hashCode() {
-            return 1;
+            return 31;
         }
 
         @Override
@@ -23,17 +23,12 @@ public class ConcurrentHashMapTest {
 
     public static void main(String[] args) {
 
-        ConcurrentHashMap<Key, String> map = new ConcurrentHashMap<>();
+        ConcurrentHashMap<Key, String> map = new ConcurrentHashMap<>(64);
 
-        map.put(new Key(), "str1");
-        map.put(new Key(), "str2");
-        map.put(new Key(), "str3");
-        map.put(new Key(), "str4");
-        map.put(new Key(), "str5");
-        map.put(new Key(), "str6");
-        map.put(new Key(), "str7");
-        map.put(new Key(), "str8");
-        map.put(new Key(), "str9");
+
+        for (int i = 1; i < 33; i++) {
+            map.put(new Key(), "str" + 1);
+        }
 
 
         System.out.println(1 << 30);

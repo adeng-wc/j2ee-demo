@@ -7,6 +7,7 @@ import java.util.Random;
 public class BinaryTest {
 
 
+
     @Test
     public void test1() {
 
