@@ -97,7 +97,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.adeng.mybatis.dao.model.Contract" useGeneratedKeys="true" keyColumn="id">
+  <insert id="insert" parameterType="com.adeng.mybatis.dao.model.Contract">
     insert into t_contract (id, project_id, money
       )
     values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{money,jdbcType=INTEGER}

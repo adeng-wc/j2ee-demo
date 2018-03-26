@@ -9,7 +9,7 @@
     <!-- mvcframework config start -->
     <servlet>
         <servlet-name>dispatcher</servlet-name>
-        <servlet-class>com.gupaoedu.mvcframework.servlet.GPDispatcherServlet</servlet-class>
+        <servlet-class>com.adeng.mvcframework.servlet.MvcDispatcherServlet</servlet-class>
         <init-param>
             <param-name>scanPackage</param-name>
             <param-value>com.gupaoedu.demo</param-value>
