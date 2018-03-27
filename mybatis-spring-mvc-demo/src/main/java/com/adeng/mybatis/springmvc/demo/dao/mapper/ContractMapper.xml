@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.adeng.mybatis.dao.ContractMapper">
-  <resultMap id="BaseResultMap" type="com.adeng.mybatis.dao.model.Contract">
+<mapper namespace="com.adeng.mybatis.springmvc.demo.dao.mapper.ContractMapper">
+  <resultMap id="BaseResultMap" type="com.adeng.mybatis.springmvc.demo.dao.model.Contract">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="project_id" jdbcType="INTEGER" property="projectId" />
     <result column="money" jdbcType="INTEGER" property="money" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     id, project_id, money
   </sql>
-  <select id="selectByExample" parameterType="com.adeng.mybatis.dao.model.ContractExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.adeng.mybatis.springmvc.demo.dao.example.ContractExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -91,19 +91,19 @@
     delete from t_contract
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.adeng.mybatis.dao.model.ContractExample">
+  <delete id="deleteByExample" parameterType="com.adeng.mybatis.springmvc.demo.dao.example.ContractExample">
     delete from t_contract
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.adeng.mybatis.dao.model.Contract">
+  <insert id="insert" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Contract" useGeneratedKeys="true" keyProperty="id">
     insert into t_contract (id, project_id, money
       )
     values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{money,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.adeng.mybatis.dao.model.Contract">
+  <insert id="insertSelective" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Contract">
     insert into t_contract
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -128,7 +128,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.adeng.mybatis.dao.model.ContractExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.adeng.mybatis.springmvc.demo.dao.example.ContractExample" resultType="java.lang.Long">
     select count(*) from t_contract
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -160,7 +160,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.adeng.mybatis.dao.model.Contract">
+  <update id="updateByPrimaryKeySelective" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Contract">
     update t_contract
     <set>
       <if test="projectId != null">
@@ -172,7 +172,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.adeng.mybatis.dao.model.Contract">
+  <update id="updateByPrimaryKey" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Contract">
     update t_contract
     set project_id = #{projectId,jdbcType=INTEGER},
       money = #{money,jdbcType=INTEGER}

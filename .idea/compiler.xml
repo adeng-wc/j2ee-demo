@@ -2,22 +2,36 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="codewars" />
+        <module name="design-parttens-demo" />
+        <module name="jdk-source-remark" />
         <module name="jmx-demo" />
         <module name="my-mvcframework" />
+        <module name="mybatis-demo" />
+        <module name="mybatis-generator-demo" />
+        <module name="mybatis-spring-mvc-demo" />
         <module name="servlet-demo" />
+        <module name="spring-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="codewars" target="1.8" />
+      <module name="design-parttens-demo" target="1.8" />
       <module name="j2ee-demo" target="1.8" />
+      <module name="jdk-source-remark" target="1.8" />
       <module name="jmx-demo" target="1.8" />
       <module name="my-mvcframework" target="1.8" />
+      <module name="mybatis-demo" target="1.8" />
+      <module name="mybatis-generator-demo" target="1.8" />
+      <module name="myBatis-Spring-boot-demo" target="1.8" />
+      <module name="mybatis-spring-mvc-demo" target="1.8" />
       <module name="servlet-demo" target="1.8" />
+      <module name="spring-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -2,10 +2,10 @@ package com.adeng.mybatis.springmvc.demo.config;
 
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
@@ -20,7 +20,7 @@ import javax.sql.DataSource;
  * @create 2018-03-25 下午12:06
  */
 @Configuration
-@ComponentScan(basePackages = "com.adeng.mybatis.springmvc.demo")
+@MapperScan(basePackages = "com.adeng.mybatis.springmvc.demo")
 @EnableTransactionManagement(proxyTargetClass = true)
 public class MybatisConfig {
 

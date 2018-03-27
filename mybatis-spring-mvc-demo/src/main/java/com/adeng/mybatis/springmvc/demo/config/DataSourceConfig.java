@@ -1,11 +1,12 @@
 package com.adeng.mybatis.springmvc.demo.config;
 
-import org.apache.ibatis.datasource.pooled.PooledDataSource;
+import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import javax.sql.DataSource;
 
@@ -33,18 +34,34 @@ public class DataSourceConfig {
     private String password;
 
 
-    @Bean(name = "dataSource")
+    @Bean(name = "dataSource", initMethod = "init", destroyMethod = "close")
     public DataSource dataSource() {
 
-        DataSource dataSource = new PooledDataSource(driver, url, username, password);
-
+        DruidDataSource dataSource = new DruidDataSource();
+        dataSource.setDriverClassName(driver);
+        dataSource.setUrl(url);
+        dataSource.setUsername(username);
+        dataSource.setPassword(password);
+        dataSource.setConnectionProperties("config.decrypt=true");
+//        dataSource.setFilters("stat,config");
+//        dataSource.setFilters("stat");
+        dataSource.setMaxActive(20);
+        dataSource.setInitialSize(20);
+        dataSource.setMaxWait(60000);
+        dataSource.setMinIdle(1);
+        dataSource.setTimeBetweenEvictionRunsMillis(60000);
+        dataSource.setMinEvictableIdleTimeMillis(300000);
+        dataSource.setValidationQuery("SELECT 'x'");
+        dataSource.setTestWhileIdle(true);
+        dataSource.setTestOnBorrow(false);
+        dataSource.setTestOnReturn(false);
+        dataSource.setPoolPreparedStatements(false);
+        dataSource.setMaxOpenPreparedStatements(20);
+//        dataSource.setProxyFilters(Arrays.asList(statFilter()));
+        dataSource.setConnectionErrorRetryAttempts(5);
         return dataSource;
     }
 
- /*   @Bean
-    public DataSourceTransactionManager transactionManager() {
-        return new DataSourceTransactionManager(dataSource());
-    }*/
 
   /*  @Bean
     public SqlSessionFactory sqlSessionFactory() throws Exception {
@@ -53,13 +70,13 @@ public class DataSourceConfig {
         return sessionFactory.getObject();
     }*/
 
- /*   *//**
+    /**
      * 必须加上static
-     *//*
+     */
     @Bean
     public static PropertySourcesPlaceholderConfigurer loadProperties() {
         PropertySourcesPlaceholderConfigurer configurer = new PropertySourcesPlaceholderConfigurer();
         return configurer;
-    }*/
+    }
 
 }

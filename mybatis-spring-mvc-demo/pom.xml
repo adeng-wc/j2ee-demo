@@ -59,6 +59,16 @@
             <artifactId>mybatis-spring</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
         <!--log-->
         <dependency>
             <groupId>org.slf4j</groupId>
