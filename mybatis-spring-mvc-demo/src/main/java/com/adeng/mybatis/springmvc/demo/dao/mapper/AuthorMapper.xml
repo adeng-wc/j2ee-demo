@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.adeng.mybatis.springmvc.demo.dao.mapper.ContractMapper">
-  <resultMap id="BaseResultMap" type="com.adeng.mybatis.springmvc.demo.dao.model.Contract">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="project_id" jdbcType="INTEGER" property="projectId" />
-    <result column="money" jdbcType="INTEGER" property="money" />
+<mapper namespace="com.adeng.mybatis.springmvc.demo.dao.mapper.AuthorMapper">
+  <resultMap id="BaseResultMap" type="com.adeng.mybatis.springmvc.demo.dao.model.Author">
+    <id column="aid" jdbcType="INTEGER" property="aid" />
+    <result column="author_name" jdbcType="VARCHAR" property="authorName" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,15 +64,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, project_id, money
+    aid, author_name
   </sql>
-  <select id="selectByExample" parameterType="com.adeng.mybatis.springmvc.demo.dao.example.ContractExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.AuthorExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from t_contract
+    from author
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -84,67 +83,56 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from t_contract
-    where id = #{id,jdbcType=INTEGER}
+    from author
+    where aid = #{aid,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from t_contract
-    where id = #{id,jdbcType=INTEGER}
+    delete from author
+    where aid = #{aid,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.adeng.mybatis.springmvc.demo.dao.example.ContractExample">
-    delete from t_contract
+  <delete id="deleteByExample" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.AuthorExample">
+    delete from author
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Contract" useGeneratedKeys="true" keyProperty="id">
-    insert into t_contract (id, project_id, money
-      )
-    values (#{id,jdbcType=INTEGER}, #{projectId,jdbcType=INTEGER}, #{money,jdbcType=INTEGER}
-      )
+  <insert id="insert" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Author">
+    insert into author (aid, author_name)
+    values (#{aid,jdbcType=INTEGER}, #{authorName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Contract">
-    insert into t_contract
+  <insert id="insertSelective" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Author">
+    insert into author
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
+      <if test="aid != null">
+        aid,
       </if>
-      <if test="projectId != null">
-        project_id,
-      </if>
-      <if test="money != null">
-        money,
+      <if test="authorName != null">
+        author_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
+      <if test="aid != null">
+        #{aid,jdbcType=INTEGER},
       </if>
-      <if test="projectId != null">
-        #{projectId,jdbcType=INTEGER},
-      </if>
-      <if test="money != null">
-        #{money,jdbcType=INTEGER},
+      <if test="authorName != null">
+        #{authorName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.adeng.mybatis.springmvc.demo.dao.example.ContractExample" resultType="java.lang.Long">
-    select count(*) from t_contract
+  <select id="countByExample" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.AuthorExample" resultType="java.lang.Long">
+    select count(*) from author
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update t_contract
+    update author
     <set>
-      <if test="record.id != null">
-        id = #{record.id,jdbcType=INTEGER},
+      <if test="record.aid != null">
+        aid = #{record.aid,jdbcType=INTEGER},
       </if>
-      <if test="record.projectId != null">
-        project_id = #{record.projectId,jdbcType=INTEGER},
-      </if>
-      <if test="record.money != null">
-        money = #{record.money,jdbcType=INTEGER},
+      <if test="record.authorName != null">
+        author_name = #{record.authorName,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -152,30 +140,25 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update t_contract
-    set id = #{record.id,jdbcType=INTEGER},
-      project_id = #{record.projectId,jdbcType=INTEGER},
-      money = #{record.money,jdbcType=INTEGER}
+    update author
+    set aid = #{record.aid,jdbcType=INTEGER},
+      author_name = #{record.authorName,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Contract">
-    update t_contract
+  <update id="updateByPrimaryKeySelective" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Author">
+    update author
     <set>
-      <if test="projectId != null">
-        project_id = #{projectId,jdbcType=INTEGER},
-      </if>
-      <if test="money != null">
-        money = #{money,jdbcType=INTEGER},
+      <if test="authorName != null">
+        author_name = #{authorName,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where aid = #{aid,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Contract">
-    update t_contract
-    set project_id = #{projectId,jdbcType=INTEGER},
-      money = #{money,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.adeng.mybatis.springmvc.demo.dao.model.Author">
+    update author
+    set author_name = #{authorName,jdbcType=VARCHAR}
+    where aid = #{aid,jdbcType=INTEGER}
   </update>
 </mapper>

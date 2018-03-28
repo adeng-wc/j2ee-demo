@@ -1,5 +1,7 @@
 package com.adeng.mybatis.springmvc.demo.config;
 
+import com.alibaba.druid.filter.Filter;
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -9,6 +11,7 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 
 import javax.sql.DataSource;
+import java.util.Arrays;
 
 /**
  * DataSource相关的配置类
@@ -57,18 +60,19 @@ public class DataSourceConfig {
         dataSource.setTestOnReturn(false);
         dataSource.setPoolPreparedStatements(false);
         dataSource.setMaxOpenPreparedStatements(20);
-//        dataSource.setProxyFilters(Arrays.asList(statFilter()));
+        dataSource.setProxyFilters(Arrays.asList(statFilter()));
         dataSource.setConnectionErrorRetryAttempts(5);
         return dataSource;
     }
 
 
-  /*  @Bean
-    public SqlSessionFactory sqlSessionFactory() throws Exception {
-        SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource());
-        return sessionFactory.getObject();
-    }*/
+    @Bean
+    public Filter statFilter() {
+        StatFilter statFilter = new StatFilter();
+        statFilter.setSlowSqlMillis(2000);
+        statFilter.setLogSlowSql(true);
+        return statFilter;
+    }
 
     /**
      * 必须加上static

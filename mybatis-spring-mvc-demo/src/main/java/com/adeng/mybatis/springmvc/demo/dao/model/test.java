@@ -3,12 +3,11 @@ package com.adeng.mybatis.springmvc.demo.dao.model;
 import lombok.Data;
 
 @Data
-public class Contract {
-
+public class Test {
     private Integer id;
 
-    private Integer projectId;
+    private Integer nums;
 
-    private Integer money;
+    private String name;
 
 }

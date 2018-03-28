@@ -23,26 +23,56 @@
         </jdbcConnection>
 
 
-        <javaTypeResolver >
-            <property name="forceBigDecimals" value="false" />
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
 
-        <javaModelGenerator targetPackage="com.adeng.mybatis.dao.model" targetProject="/Users/wengcheng/IdeaProjects/MyDemo/j2ee-demo/mybatis-generator-demo/src/main/java">
-            <property name="enableSubPackages" value="true" />
-            <property name="trimStrings" value="true" />
+        <javaModelGenerator targetPackage="com.adeng.mybatis.springmvc.demo.dao.model"
+                            targetProject="/Users/wengcheng/IdeaProjects/MyDemo/j2ee-demo/mybatis-generator-demo/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
         </javaModelGenerator>
 
         <sqlMapGenerator targetPackage="com.adeng.mybatis.dao.xml"  targetProject="/Users/wengcheng/IdeaProjects/MyDemo/j2ee-demo/mybatis-generator-demo/src/main/java">
             <property name="enableSubPackages" value="true" />
         </sqlMapGenerator>
 
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.adeng.mybatis.dao"  targetProject="/Users/wengcheng/IdeaProjects/MyDemo/j2ee-demo/mybatis-generator-demo/src/main/java">
-            <property name="enableSubPackages" value="true" />
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.adeng.mybatis.springmvc.demo.dao.mapper"
+                             targetProject="/Users/wengcheng/IdeaProjects/MyDemo/j2ee-demo/mybatis-generator-demo/src/main/java">
+            <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
 
-        <table schema="db_gupao" tableName="t_contract" domainObjectName="Contract" >
+        <!--<table schema="db_gupao" tableName="t_contract" domainObjectName="Contract">-->
+            <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--</table>-->
+
+        <table schema="gp" tableName="test" domainObjectName="Test">
             <property name="useActualColumnNames" value="false"/>
+            <columnOverride column="DATE_FIELD" property="startDate"/>
+            <ignoreColumn column="FRED"/>
+            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>
+        </table>
+
+        <table schema="gp" tableName="blog" domainObjectName="Blog">
+            <property name="useActualColumnNames" value="false"/>
+            <columnOverride column="DATE_FIELD" property="startDate"/>
+            <ignoreColumn column="FRED"/>
+            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>
+        </table>
+
+        <table schema="gp" tableName="author" domainObjectName="Author">
+            <property name="useActualColumnNames" value="false"/>
+            <columnOverride column="DATE_FIELD" property="startDate"/>
+            <ignoreColumn column="FRED"/>
+            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>
+        </table>
+
+        <table schema="gp" tableName="posts" domainObjectName="Posts">
+            <property name="useActualColumnNames" value="false"/>
+            <columnOverride column="DATE_FIELD" property="startDate"/>
+            <ignoreColumn column="FRED"/>
+            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR"/>
         </table>
 
     </context>
