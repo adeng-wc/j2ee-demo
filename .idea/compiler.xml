@@ -12,6 +12,7 @@
         <module name="jdk-source-remark" />
         <module name="jmx-demo" />
         <module name="my-mvcframework" />
+        <module name="my-mybatis" />
         <module name="mybatis-demo" />
         <module name="mybatis-generator-demo" />
         <module name="mybatis-spring-mvc-demo" />
@@ -26,6 +27,7 @@
       <module name="jdk-source-remark" target="1.8" />
       <module name="jmx-demo" target="1.8" />
       <module name="my-mvcframework" target="1.8" />
+      <module name="my-mybatis" target="1.8" />
       <module name="mybatis-demo" target="1.8" />
       <module name="mybatis-generator-demo" target="1.8" />
       <module name="myBatis-Spring-boot-demo" target="1.8" />
