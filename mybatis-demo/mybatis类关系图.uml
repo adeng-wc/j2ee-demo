@@ -3,27 +3,100 @@
   <ID>JAVA</ID>
   <OriginalElement />
   <nodes>
-    <node x="0.0" y="370.0">org.apache.ibatis.binding.MapperProxy</node>
-    <node x="0.0" y="148.0">org.apache.ibatis.executor.CachingExecutor</node>
-    <node x="0.0" y="222.0">org.apache.ibatis.binding.MapperRegistry</node>
-    <node x="0.0" y="0.0">org.apache.ibatis.session.SqlSessionFactoryBuilder</node>
-    <node x="178.0" y="296.0">org.apache.ibatis.session.Configuration</node>
-    <node x="174.0" y="370.0">org.apache.ibatis.mapping.Environment</node>
-    <node x="345.0" y="370.0">org.apache.ibatis.plugin.Interceptor</node>
-    <node x="198.0" y="148.0">org.apache.ibatis.plugin.InterceptorChain</node>
-    <node x="0.0" y="444.0">org.apache.ibatis.plugin.Plugin</node>
-    <node x="0.0" y="296.0">org.apache.ibatis.executor.BaseExecutor</node>
-    <node x="249.0" y="0.0">org.apache.ibatis.binding.MapperProxyFactory</node>
-    <node x="205.0" y="74.0">org.apache.ibatis.session.defaults.DefaultSqlSession</node>
-    <node x="0.0" y="74.0">org.apache.ibatis.mapping.MappedStatement</node>
-    <node x="189.0" y="222.0">org.apache.ibatis.binding.MapperMethod</node>
+    <node x="292.3333333333333" y="336.0">org.apache.ibatis.binding.MapperProxy</node>
+    <node x="246.0" y="168.0">org.apache.ibatis.session.Configuration</node>
+    <node x="323.0" y="79.0">org.apache.ibatis.mapping.Environment</node>
+    <node x="299.3333333333333" y="257.0">org.apache.ibatis.session.SqlSession</node>
+    <node x="199.0" y="79.0">org.apache.ibatis.executor.Executor</node>
+    <node x="227.12166666666667" y="0.0">org.apache.ibatis.session.ResultHandler</node>
+    <node x="0.0" y="79.0">org.apache.ibatis.executor.statement.StatementHandler</node>
   </nodes>
   <notes />
-  <edges />
-  <settings layout="Hierarchic Group" zoom="0.8980301274623407" x="412.5" y="421.5" />
-  <SelectedNodes>
-    <node>org.apache.ibatis.plugin.Interceptor</node>
-  </SelectedNodes>
+  <edges>
+    <edge source="org.apache.ibatis.session.SqlSession" target="org.apache.ibatis.session.ResultHandler">
+      <point x="38.33333333333332" y="-14.5" />
+      <point x="395.16666666666663" y="237.0" />
+      <point x="459.5" y="237.0" />
+      <point x="459.5" y="59.0" />
+      <point x="347.7216666666667" y="59.0" />
+      <point x="53.60000000000002" y="14.5" />
+    </edge>
+    <edge source="org.apache.ibatis.binding.MapperProxy" target="org.apache.ibatis.session.SqlSession">
+      <point x="-32.25" y="-14.5" />
+      <point x="324.5833333333333" y="311.0" />
+      <point x="328.0833333333333" y="311.0" />
+      <point x="-28.75" y="14.5" />
+    </edge>
+    <edge source="org.apache.ibatis.binding.MapperProxy" target="org.apache.ibatis.binding.MapperProxy">
+      <point x="0.0" y="14.5" />
+      <point x="356.8333333333333" y="385.0" />
+      <point x="272.3333333333333" y="385.0" />
+      <point x="272.3333333333333" y="350.5" />
+      <point x="-64.5" y="-0.0" />
+    </edge>
+    <edge source="org.apache.ibatis.session.Configuration" target="org.apache.ibatis.executor.statement.StatementHandler">
+      <point x="-53.19999999999999" y="-14.5" />
+      <point x="259.3" y="148.0" />
+      <point x="79.5" y="148.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.apache.ibatis.session.SqlSession" target="org.apache.ibatis.session.Configuration">
+      <point x="-38.333333333333314" y="-14.5" />
+      <point x="318.5" y="237.0" />
+      <point x="312.5" y="237.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.apache.ibatis.executor.Executor" target="org.apache.ibatis.session.ResultHandler">
+      <point x="25.75" y="-14.5" />
+      <point x="276.25" y="59.0" />
+      <point x="294.12166666666667" y="59.0" />
+      <point x="0.0" y="14.5" />
+    </edge>
+    <edge source="org.apache.ibatis.session.Configuration" target="org.apache.ibatis.session.SqlSession">
+      <point x="44.333333333333314" y="14.5" />
+      <point x="0.0" y="-14.5" />
+    </edge>
+    <edge source="org.apache.ibatis.session.Configuration" target="org.apache.ibatis.executor.Executor">
+      <point x="-26.599999999999966" y="-14.5" />
+      <point x="285.90000000000003" y="148.0" />
+      <point x="276.25" y="148.0" />
+      <point x="25.75" y="14.5" />
+    </edge>
+    <edge source="org.apache.ibatis.session.Configuration" target="org.apache.ibatis.mapping.Environment">
+      <point x="53.19999999999999" y="-14.5" />
+      <point x="365.7" y="148.0" />
+      <point x="417.5" y="148.0" />
+      <point x="31.5" y="14.5" />
+    </edge>
+    <edge source="org.apache.ibatis.executor.statement.StatementHandler" target="org.apache.ibatis.session.ResultHandler">
+      <point x="0.0" y="-14.5" />
+      <point x="79.5" y="49.0" />
+      <point x="240.52166666666668" y="49.0" />
+      <point x="-53.599999999999994" y="14.5" />
+    </edge>
+    <edge source="org.apache.ibatis.session.Configuration" target="org.apache.ibatis.session.Configuration">
+      <point x="-44.333333333333336" y="14.5" />
+      <point x="268.1666666666667" y="217.0" />
+      <point x="226.0" y="217.0" />
+      <point x="226.0" y="182.5" />
+      <point x="-66.5" y="-0.0" />
+    </edge>
+    <edge source="org.apache.ibatis.executor.Executor" target="org.apache.ibatis.executor.Executor">
+      <point x="-25.75" y="14.5" />
+      <point x="224.75" y="128.0" />
+      <point x="179.0" y="128.0" />
+      <point x="179.0" y="93.5" />
+      <point x="-51.5" y="-0.0" />
+    </edge>
+    <edge source="org.apache.ibatis.session.Configuration" target="org.apache.ibatis.session.ResultHandler">
+      <point x="0.0" y="-14.5" />
+      <point x="312.5" y="59.0" />
+      <point x="320.9216666666667" y="59.0" />
+      <point x="26.80000000000001" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="230.5" y="245.0" />
+  <SelectedNodes />
   <Categories />
   <SCOPE>All</SCOPE>
   <VISIBILITY>public</VISIBILITY>

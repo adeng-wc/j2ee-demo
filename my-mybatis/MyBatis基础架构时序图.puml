@@ -1,7 +1,12 @@
-@startuml
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+1.0版本
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+@startuml
+Configuration -> SqlSession: build
+SqlSession -> Configuration: getMapper
+
+SqlSession <-- MapperProxy: selectOne
+SqlSession --> Executor: query
+Executor --> StatementHandler: query
+StatementHandler --> ResultSetHandler: HandlerResultSet
+
 @enduml
