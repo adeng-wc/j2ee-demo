@@ -9,7 +9,8 @@ TestMapper就是一个定义了Test有那些可以操作的接口，没有实现
     1、定义Test类的数据库操作方法，避免直接使用sqlsession.selectOne等方法
 
 唯一变化的也就是SqlSession了。在Mybatis中SqlSession是Method级别的。
-
+而在Mybatis-spring中，利用SqlSessionTemplate封装了SqlSession的代理对象SqlSessionInterceptor。
+每次操作都会获取SqlSession。
 
 2. MyBatis在Spring集成下没有mapper的xml文件会不会
 报错，为什么？
