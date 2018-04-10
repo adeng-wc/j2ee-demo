@@ -1,4 +1,4 @@
-package com.adeng.customize.mybatis.model;
+package com.adeng.customize.mybatis.test.model;
 
 import lombok.Data;
 

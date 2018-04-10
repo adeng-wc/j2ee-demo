@@ -1,11 +1,11 @@
-package com.adeng.customize.mybatis;
+package com.adeng.customize.mybatis.test;
 
 
 import com.adeng.customize.mybatis.core.config.Configuration;
 import com.adeng.customize.mybatis.core.executor.Executor;
 import com.adeng.customize.mybatis.core.session.SqlSession;
-import com.adeng.customize.mybatis.mapper.TestMapper;
-import com.adeng.customize.mybatis.model.Test;
+import com.adeng.customize.mybatis.test.mapper.TestMapper;
+import com.adeng.customize.mybatis.test.model.Test;
 
 import java.io.IOException;
 
@@ -16,11 +16,11 @@ public class BootStrap {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        String scanPath = "com.adeng.customize.mybatis.mapper";
+        String scanPath = "com.adeng.customize.mybatis.test";
         Configuration configuration = new Configuration(scanPath);
         configuration.build();
 
-        Executor executor = new Executor(configuration);
+        Executor executor = configuration.newExecutor();
 
         SqlSession sqlSession = new SqlSession(configuration, executor);
 

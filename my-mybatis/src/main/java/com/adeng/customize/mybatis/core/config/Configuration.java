@@ -1,6 +1,11 @@
 package com.adeng.customize.mybatis.core.config;
 
-import com.adeng.customize.mybatis.core.annotation.*;
+import com.adeng.customize.mybatis.core.executor.DefaultExecutor;
+import com.adeng.customize.mybatis.core.executor.Executor;
+import com.adeng.customize.mybatis.core.mapper.*;
+import com.adeng.customize.mybatis.core.plugin.Interceptor;
+import com.adeng.customize.mybatis.core.plugin.InterceptorChain;
+import com.adeng.customize.mybatis.core.plugin.Intercepts;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +29,11 @@ public class Configuration {
      * key 是mapper方法的全路径名称，value是sql操作的类型
      */
     private Map<String, SqlCommondType> mapperMethodMap = new HashMap<>();
+
+    /**
+     * 拦截器plugin注册的地方
+     */
+    private InterceptorChain interceptorChain = new InterceptorChain();
 
     private String scanPath;
 
@@ -79,9 +89,22 @@ public class Configuration {
 
                 Class c = Class.forName(newPath.substring(0, newPath.length() - 6));
 
-                //添加mapper与entiry的对应关系
-                Annotation entity = c.getAnnotation(Entiry.class);
-                Class obj = ((Entiry) entity).value();
+                //解析该class上的所有可能的注解
+                doAnalyticalAnnotations(c, newPath);
+            }
+        }
+
+        return classes;
+    }
+
+    private void doAnalyticalAnnotations(Class c, String newPath) {
+
+        for (Annotation a : c.getAnnotations()) {
+
+            //处理mapper
+            if (a instanceof Entiry) {
+
+                Class obj = ((Entiry) a).value();
                 mapperRegistory.registor(c.getName(), obj);
 
                 //添加mapperMethod 和SQL类型
@@ -95,18 +118,38 @@ public class Configuration {
                         mapperMethodMap.put(methodPath, SqlCommondType.DELETE);
                     } else if (method.getAnnotation(Update.class) != null) {
                         mapperMethodMap.put(methodPath, SqlCommondType.UPDATE);
-                    }else if (method.getAnnotation(Insert.class) != null) {
+                    } else if (method.getAnnotation(Insert.class) != null) {
                         mapperMethodMap.put(methodPath, SqlCommondType.Insert);
                     }
                 }
             }
-        }
 
-        return classes;
+            //处理plugin
+            if (a instanceof Intercepts) {
+
+                try {
+                    interceptorChain.addInterceptor((Interceptor) c.newInstance());
+                } catch (Exception e) {
+
+                    System.out.println(c.getName() + "plugin is error");
+                }
+            }
+        }
+    }
+
+    /**
+     * 创建默认Executor，并且包装插件
+     *
+     * @return
+     */
+    public Executor newExecutor() {
+        Executor executor = new DefaultExecutor(this);
+        executor = (Executor) interceptorChain.pluginAll(executor);
+        return executor;
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        String packageName = "com.adeng.customize.mybatis.mapper";
+        String packageName = "com.adeng.customize.mybatis.test.mapper";
         String path = packageName.replace(".", "/");
 
         ClassLoader classLoader = Thread.currentThread().getContextClassLoader();

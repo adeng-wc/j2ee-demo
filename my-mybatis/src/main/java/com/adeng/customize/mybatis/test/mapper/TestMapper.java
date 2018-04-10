@@ -1,8 +1,8 @@
-package com.adeng.customize.mybatis.mapper;
+package com.adeng.customize.mybatis.test.mapper;
 
-import com.adeng.customize.mybatis.core.annotation.Entiry;
-import com.adeng.customize.mybatis.core.annotation.Select;
-import com.adeng.customize.mybatis.model.Test;
+import com.adeng.customize.mybatis.core.mapper.Entiry;
+import com.adeng.customize.mybatis.core.mapper.Select;
+import com.adeng.customize.mybatis.test.model.Test;
 
 import java.util.List;
 
@@ -16,10 +16,8 @@ public interface TestMapper {
 
     int insertSelective(Test record);
 
-
     @Select("select * from test where id = %d")
     Test selectByPrimaryKey(Integer id);
-
 
     int updateByPrimaryKeySelective(Test record);
 
@@ -27,5 +25,6 @@ public interface TestMapper {
 
     int insertBatch(List<Test> tests);
 
+    @Select("select * from test")
     List<Test> selectAll();
 }

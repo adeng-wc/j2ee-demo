@@ -1,6 +1,6 @@
 package com.adeng.customize.mybatis.core.session;
 
-import com.adeng.customize.mybatis.core.annotation.Select;
+import com.adeng.customize.mybatis.core.mapper.Select;
 import com.adeng.customize.mybatis.core.config.Configuration;
 import com.adeng.customize.mybatis.core.config.SqlCommondType;
 

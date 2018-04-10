@@ -1,4 +1,4 @@
-package com.adeng.customize.mybatis.core.annotation;
+package com.adeng.customize.mybatis.core.mapper;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
