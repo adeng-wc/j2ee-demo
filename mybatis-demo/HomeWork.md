@@ -62,5 +62,10 @@ org.apache.ibatis.plugin.InterceptorChain.pluginAll中会循环遍历所有注�
 
 > 并且org.apache.ibatis.executor.resultset.DefaultResultSetHandler.getNestedQueryMappingValue
 
-
+课后作业 20180401
+1. 手写1.0
+2. 2.0版本的基础上，用annotation
  
+ 
+课后作业20180408
+1.  2.0版本加入plugin功能

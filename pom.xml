@@ -21,6 +21,7 @@
         <module>spring-demo</module>
         <module>my-mybatis</module>
         <module>lombok-demo</module>
+        <module>java8-demo</module>
     </modules>
 
     <properties>

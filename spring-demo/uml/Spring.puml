@@ -1,0 +1,13 @@
+Ioc容器：定位，加载，注册
+
+
+@startuml
+Configuration -> SqlSession: build
+SqlSession -> Configuration: getMapper
+
+SqlSession <-- MapperProxy: selectOne
+SqlSession --> Executor: query
+Executor --> StatementHandler: query
+StatementHandler --> ResultSetHandler: HandlerResultSet
+
+@enduml
