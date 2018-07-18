@@ -3,10 +3,16 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/codewars/codewars.iml" filepath="$PROJECT_DIR$/codewars/codewars.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common-utils/common-utils.iml" filepath="$PROJECT_DIR$/common-utils/common-utils.iml" />
       <module fileurl="file://$PROJECT_DIR$/design-parttens-demo/design-parttens-demo.iml" filepath="$PROJECT_DIR$/design-parttens-demo/design-parttens-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dozer-demo/dozer-demo.iml" filepath="$PROJECT_DIR$/dozer-demo/dozer-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/fastjson-demo/fastjson-demo.iml" filepath="$PROJECT_DIR$/fastjson-demo/fastjson-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/guava-demo/guava-demo.iml" filepath="$PROJECT_DIR$/guava-demo/guava-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/j2ee-demo.iml" filepath="$PROJECT_DIR$/j2ee-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java8-demo/java8-demo.iml" filepath="$PROJECT_DIR$/java8-demo/java8-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/jdk-source-remark/jdk-source-remark.iml" filepath="$PROJECT_DIR$/jdk-source-remark/jdk-source-remark.iml" />
       <module fileurl="file://$PROJECT_DIR$/jmx-demo/jmx-demo.iml" filepath="$PROJECT_DIR$/jmx-demo/jmx-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lombok-demo/lombok-demo.iml" filepath="$PROJECT_DIR$/lombok-demo/lombok-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" filepath="$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-mybatis/my-mybatis.iml" filepath="$PROJECT_DIR$/my-mybatis/my-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" filepath="$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" />

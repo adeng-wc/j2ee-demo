@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings xmlns="http://dozermapper.github.io/schema/bean-mapping"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://dozermapper.github.io/schema/bean-mapping http://dozermapper.github.io/schema/bean-mapping.xsd">
+
+
+    <mapping date-format="yyyy-MM-dd">
+        <class-a>com.adeng.dozer.attributenotequals.NotSameAttributeA</class-a>
+        <class-b>com.adeng.dozer.attributenotequals.NotSameAttributeB</class-b>
+        <field>
+            <a>name</a>
+            <b>value</b>
+        </field>
+    </mapping>
+</mappings>

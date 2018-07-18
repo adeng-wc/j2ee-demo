@@ -8,9 +8,15 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="codewars" />
+        <module name="common-utils" />
         <module name="design-parttens-demo" />
+        <module name="dozer-demo" />
+        <module name="fastjson-demo" />
+        <module name="guava-demo" />
+        <module name="java8-demo" />
         <module name="jdk-source-remark" />
         <module name="jmx-demo" />
+        <module name="lombok-demo" />
         <module name="my-mvcframework" />
         <module name="my-mybatis" />
         <module name="mybatis-demo" />
@@ -22,10 +28,16 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="codewars" target="1.8" />
+      <module name="common-utils" target="1.8" />
       <module name="design-parttens-demo" target="1.8" />
+      <module name="dozer-demo" target="1.8" />
+      <module name="fastjson-demo" target="1.8" />
+      <module name="guava-demo" target="1.8" />
       <module name="j2ee-demo" target="1.8" />
+      <module name="java8-demo" target="1.8" />
       <module name="jdk-source-remark" target="1.8" />
       <module name="jmx-demo" target="1.8" />
+      <module name="lombok-demo" target="1.8" />
       <module name="my-mvcframework" target="1.8" />
       <module name="my-mybatis" target="1.8" />
       <module name="mybatis-demo" target="1.8" />

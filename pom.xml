@@ -22,6 +22,10 @@
         <module>my-mybatis</module>
         <module>lombok-demo</module>
         <module>java8-demo</module>
+        <module>guava-demo</module>
+        <module>common-utils</module>
+        <module>fastjson-demo</module>
+        <module>dozer-demo</module>
     </modules>
 
     <properties>
@@ -33,10 +37,23 @@
         <java.version>1.8</java.version>
         <mysql.version>5.1.6</mysql.version>
         <pagehelper.version>5.0.3</pagehelper.version>
+        <guava.version>23.0</guava.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.32</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>3.4</version>
+            </dependency>
 
             <dependency>
                 <groupId>junit</groupId>
@@ -153,6 +170,15 @@
                 <artifactId>pagehelper</artifactId>
                 <version>${pagehelper.version}</version>
             </dependency>
+
+
+            <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
