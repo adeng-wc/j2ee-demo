@@ -26,6 +26,8 @@
         <module>common-utils</module>
         <module>fastjson-demo</module>
         <module>dozer-demo</module>
+        <module>zxing-demo</module>
+        <module>data-structure</module>
     </modules>
 
     <properties>

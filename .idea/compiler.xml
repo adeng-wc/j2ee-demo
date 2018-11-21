@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="codewars" />
         <module name="common-utils" />
+        <module name="data-structure" />
         <module name="design-parttens-demo" />
         <module name="dozer-demo" />
         <module name="fastjson-demo" />
@@ -24,11 +25,13 @@
         <module name="mybatis-spring-mvc-demo" />
         <module name="servlet-demo" />
         <module name="spring-demo" />
+        <module name="zxing-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="codewars" target="1.8" />
       <module name="common-utils" target="1.8" />
+      <module name="data-structure" target="1.8" />
       <module name="design-parttens-demo" target="1.8" />
       <module name="dozer-demo" target="1.8" />
       <module name="fastjson-demo" target="1.8" />
@@ -46,6 +49,7 @@
       <module name="mybatis-spring-mvc-demo" target="1.8" />
       <module name="servlet-demo" target="1.8" />
       <module name="spring-demo" target="1.8" />
+      <module name="zxing-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
