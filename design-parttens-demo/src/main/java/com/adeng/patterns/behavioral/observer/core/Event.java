@@ -2,6 +2,9 @@ package com.adeng.patterns.behavioral.observer.core;
 
 import java.lang.reflect.Method;
 
+/**
+ * 事件源格式的定义
+ */
 public class Event {
 
     //事件源

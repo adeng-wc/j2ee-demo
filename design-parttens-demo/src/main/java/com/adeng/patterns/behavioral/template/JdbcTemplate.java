@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 利用模板模式 实现JdbcTemplate,
- *
+ * <p>
  * 模板模式，将固定的流程提起出来，将少量变化的部分暴露给用户。达到简化用户操作。
  */
 public class JdbcTemplate {
@@ -27,7 +27,8 @@ public class JdbcTemplate {
         /*
             利用JDK7中的 try-with-resource，自动关闭资源.
          */
-        try (/* 1.建立连接 */
+        try (
+                /* 1.建立连接 */
                 Connection coon = this.getConnection();
                 /* 2.利用sql建立语句集合 */
                 PreparedStatement statement = this.createPreparedStatement(coon, sql)) {
@@ -38,6 +39,11 @@ public class JdbcTemplate {
             /* 4.解析结果，如何解析？需要用户自己定义解析规则 */
             list = this.parseResultSet(resultSet, rowMapper);
 
+            // close ResultSet
+
+            // close PreparedStatement
+
+            // close Connection
 
         } catch (SQLException e) {
             e.printStackTrace();
