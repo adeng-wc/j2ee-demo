@@ -14,7 +14,7 @@ public class Serializa implements Serializable {
         return INSTANCE;
     }
 
-    /*
+    /**
         反序列化的时候回调用该方法 readResolveMethod
      */
     private Object readResolve(){
