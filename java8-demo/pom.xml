@@ -12,7 +12,6 @@
     <artifactId>java8-demo</artifactId>
 
     <dependencies>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
