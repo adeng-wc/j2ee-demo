@@ -8,16 +8,9 @@ import com.adeng.patterns.creational.factory.Car;
 public interface CarFactory {
 
     /**
-     * 生成 BMW
+     * 生成 汽车
      *
      * @return
      */
-    Car mackBMW();
-
-    /**
-     * 生成 QQ
-     *
-     * @return
-     */
-    Car mackQQ();
+    Car make();
 }

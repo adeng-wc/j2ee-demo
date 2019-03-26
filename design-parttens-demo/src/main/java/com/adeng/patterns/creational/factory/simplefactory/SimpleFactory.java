@@ -12,22 +12,19 @@ public class SimpleFactory {
     /**
      * 静态工厂方法
      *
-     * @param carName
      * @return
      */
-    public static Car make(String carName) {
-        switch (carName) {
-            case "QQ":
-                return new QQCar();
-            case "BMW":
-                return new BMWCar();
-            default:
-                throw new IllegalArgumentException("Illegal " + carName);
+    public static Car make(Class<? extends Car> clazz) {
+        try {
+            return clazz.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return null;
     }
 
     public static void main(String[] args) {
-        SimpleFactory.make("BMW").drive();
-        SimpleFactory.make("QQ").drive();
+        SimpleFactory.make(BMWCar.class).drive();
+        SimpleFactory.make(QQCar.class).drive();
     }
 }

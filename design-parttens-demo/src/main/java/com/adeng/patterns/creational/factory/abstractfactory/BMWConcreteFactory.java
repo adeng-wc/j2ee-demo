@@ -6,9 +6,10 @@ import com.adeng.patterns.creational.factory.Car;
 /**
  * BMW 工厂
  */
-public class BMWConcreteFactory  {
+public class BMWConcreteFactory implements CarFactory {
 
-    public Car mack() {
+    @Override
+    public Car make() {
         return new BMWCar();
     }
 }
