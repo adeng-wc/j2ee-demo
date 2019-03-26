@@ -1,6 +1,8 @@
 package com.adeng.patterns.creational.factory;
 
+/**
+ * 车
+ */
 public interface Car {
-
-    public void drive();
+    void drive();
 }

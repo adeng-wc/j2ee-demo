@@ -47,6 +47,8 @@
         <slf4j-api.version>1.7.21</slf4j-api.version>
         <logback-core.version>1.1.7</logback-core.version>
         <logback-classic.version>1.1.7</logback-classic.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <cglib.version>3.2.6</cglib.version>
     </properties>
 
     <dependencyManagement>
@@ -186,6 +188,18 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${javax.servlet-api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
             </dependency>
 
         </dependencies>

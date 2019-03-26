@@ -52,7 +52,7 @@ public class ThreadLocalRandom extends Random {
      * simpler (xorShift) random seed that is conservatively used to
      * avoid otherwise surprising users by hijacking the
      * ThreadLocalRandom sequence.  The dual use is a marriage of
-     * convenience, but is a simple and efficient way of reducing
+     * convenience, but is a simplefactory and efficient way of reducing
      * application-level overhead and footprint of most concurrent
      * programs.
      *

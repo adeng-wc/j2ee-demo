@@ -1,14 +1,10 @@
-package com.adeng.patterns.creational.factory.abst;
+package com.adeng.patterns.creational.factory.abstractfactory;
 
 public class Test {
 
-
     public static void main(String[] args) {
-
-        AbstractFactory factory = new CarFactoryImp();
-
+        CarFactory factory = new CarFactoryImp();
         factory.mackQQ().drive();
         factory.mackBMW().drive();
-
     }
 }

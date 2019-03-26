@@ -987,7 +987,7 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
      * method invocation is performed atomically, so the function is
      * applied at most once per key.  Some attempted update operations
      * on this map by other threads may be blocked while computation
-     * is in progress, so the computation should be short and simple,
+     * is in progress, so the computation should be short and simplefactory,
      * and must not attempt to update any other mappings of this map.
      *
      * @param key key with which the specified value is to be associated
@@ -1089,7 +1089,7 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
      * value.  The entire method invocation is performed atomically.
      * Some attempted update operations on this map by other threads
      * may be blocked while computation is in progress, so the
-     * computation should be short and simple, and must not attempt to
+     * computation should be short and simplefactory, and must not attempt to
      * update any other mappings of this map.
      *
      * @param key key with which a value may be associated
@@ -1179,7 +1179,7 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
      * mapping). The entire method invocation is performed atomically.
      * Some attempted update operations on this map by other threads
      * may be blocked while computation is in progress, so the
-     * computation should be short and simple, and must not attempt to
+     * computation should be short and simplefactory, and must not attempt to
      * update any other mappings of this Map.
      *
      * @param key key with which the specified value is to be associated
@@ -1307,7 +1307,7 @@ public class ConcurrentHashMapRrmark<K,V> extends AbstractMap<K,V>
      * method invocation is performed atomically.  Some attempted
      * update operations on this map by other threads may be blocked
      * while computation is in progress, so the computation should be
-     * short and simple, and must not attempt to update any other
+     * short and simplefactory, and must not attempt to update any other
      * mappings of this Map.
      *
      * @param key key with which the specified value is to be associated
