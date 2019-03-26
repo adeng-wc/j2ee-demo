@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.adeng.patterns.creational.factory.factorymethod.BMWFactory</OriginalElement>
+  <nodes>
+    <node x="134.0" y="79.0">com.adeng.patterns.creational.factory.factorymethod.BMWFactory</node>
+    <node x="80.25" y="0.0">com.adeng.patterns.creational.factory.factorymethod.Factory</node>
+    <node x="0.0" y="79.0">com.adeng.patterns.creational.factory.factorymethod.QQFactory</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.adeng.patterns.creational.factory.factorymethod.BMWFactory" target="com.adeng.patterns.creational.factory.factorymethod.Factory">
+      <point x="0.0" y="-14.5" />
+      <point x="197.5" y="54.0" />
+      <point x="150.75" y="54.0" />
+      <point x="23.5" y="14.5" />
+    </edge>
+    <edge source="com.adeng.patterns.creational.factory.factorymethod.QQFactory" target="com.adeng.patterns.creational.factory.factorymethod.Factory">
+      <point x="0.0" y="-14.5" />
+      <point x="57.0" y="54.0" />
+      <point x="103.75" y="54.0" />
+      <point x="-23.5" y="14.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="63.5" y="54.0" />
+  <SelectedNodes>
+    <node>com.adeng.patterns.creational.factory.factorymethod.BMWFactory</node>
+  </SelectedNodes>
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
