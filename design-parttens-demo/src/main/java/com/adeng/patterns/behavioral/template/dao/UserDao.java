@@ -26,7 +26,6 @@ public class UserDao {
     public List<User> query(String sql, Object[] value){
 
         return (List<User>) jdbcTemplate.executeQuery(sql, (RowMapper<User>) (rs, rowNum) -> {
-
             User user = new User();
             user.setUsername(rs.getString("username"));
             user.setPassword(rs.getString("password"));

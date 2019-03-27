@@ -40,17 +40,31 @@ public class JdbcTemplate {
             list = this.parseResultSet(resultSet, rowMapper);
 
             // close ResultSet
+            closeResultSet(resultSet);
 
             // close PreparedStatement
+            closePreparedStatement(statement);
 
             // close Connection
-
+            closeConnection(coon);
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
         /* 6.返回查询结果  */
         return list;
+    }
+
+    private void closeConnection(Connection coon) throws SQLException {
+        coon.close();
+    }
+
+    private void closePreparedStatement(PreparedStatement statement) throws SQLException {
+        statement.close();
+    }
+
+    private void closeResultSet(ResultSet resultSet) throws SQLException {
+        resultSet.close();
     }
 
     private ResultSet executeQuery(PreparedStatement statement, Object[] values) throws SQLException {
