@@ -5,5 +5,6 @@
  代理模式会增加前后逻辑，委派一般直接调用。 
 
 
+Spring 常见的例子就是 MVC中的 `DispatcherServlet` 请求分发。
    
    
