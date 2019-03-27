@@ -1,4 +1,4 @@
-package com.adeng.patterns.structural.delegate;
+package com.adeng.patterns.structural.delegate.controller;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -47,7 +47,6 @@ public class DefaultServletDistributor extends HttpServlet {
         private Object controller;
         private Method method;
         private String url;
-
 
         public Object getController() {
             return controller;
