@@ -8,17 +8,21 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class RegisterMap {
 
-    private RegisterMap(){}
+    private RegisterMap() {
+    }
 
-    private static Map<String,Object> register = new ConcurrentHashMap<>();
+    private static Map<String, Object> register = new ConcurrentHashMap<>();
 
-    public static RegisterMap getInstance(String name){
-        if(name == null) {
+    public static RegisterMap getInstance(String name) {
+        if (name == null) {
             name = RegisterMap.class.getName();
         }
 
-        if(register.get(name) == null){
-            register.put(name, new RegisterMap());
+        // ConcurrentHashMap 只能保证 put 是线程安全的。 get 和 put 的组合不能保证，所以需要用锁来保证
+        synchronized (register) {
+            if (register.get(name) == null) {
+                register.put(name, new RegisterMap());
+            }
         }
 
         return (RegisterMap) register.get(name);

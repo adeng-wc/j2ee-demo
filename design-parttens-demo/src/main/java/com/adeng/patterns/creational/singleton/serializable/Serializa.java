@@ -4,7 +4,7 @@ package com.adeng.patterns.creational.singleton.serializable;
 import java.io.*;
 
 /**
- * 单例序列化
+ * 单例序列化，通过重写 readResolve 方法实现单例
  */
 public class Serializa implements Serializable {
 
