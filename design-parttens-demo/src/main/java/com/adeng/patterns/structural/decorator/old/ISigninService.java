@@ -8,7 +8,7 @@ public interface ISigninService {
      * @param password
      * @return
      */
-    public ResultMsg regist(String username,String password);
+    ResultMsg regist(String username, String password);
 
 
     /**
@@ -17,6 +17,6 @@ public interface ISigninService {
      * @param password
      * @return
      */
-    public ResultMsg login(String username,String password);
+    ResultMsg login(String username, String password);
 
 }

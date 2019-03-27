@@ -8,14 +8,14 @@ import com.adeng.patterns.structural.decorator.old.ResultMsg;
  */
 public interface ISigninForThirdService extends ISigninService {
 
-    public ResultMsg loginForQQ(String openId);
+    ResultMsg loginForQQ(String openId);
 
-    public ResultMsg loginForWechat(String openId);
+    ResultMsg loginForWechat(String openId);
 
-    public ResultMsg loginForToken(String token);
+    ResultMsg loginForToken(String token);
 
-    public ResultMsg loginForTelphone(String telphone,String code);
+    ResultMsg loginForTelphone(String telphone, String code);
 
-    public ResultMsg loginForRegist(String username,String password);
+    ResultMsg loginForRegist(String username, String password);
 
 }
