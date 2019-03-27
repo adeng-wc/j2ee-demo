@@ -10,7 +10,12 @@ package com.adeng.patterns.structural.adapter;
  */
 public class SiginForThirdService extends SiginService{
 
-
+    /**
+     * 通过适配器，实现 QQ 账号登陆
+     *
+     * @param openId
+     * @return
+     */
     public ResultMsg loginForQQ(String openId){
         //1、openId是全局唯一，我们可以把它当做是一个用户名(加长)
         //2、密码默认为QQ_EMPTY
@@ -24,7 +29,5 @@ public class SiginForThirdService extends SiginService{
     private ResultMsg loginForRegist(String username, Object o) {
         super.regist(username,null);
         return super.login(username,null);
-
     }
-
 }
