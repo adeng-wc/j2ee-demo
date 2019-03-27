@@ -9,6 +9,11 @@ public class StaticInnerLazy {
 
     private StaticInnerLazy(){}
 
+    /**
+     * getInstance 方法被调用的时候，JVM才会加载 内部类 {@link InnerClass}, 类加载过程中是 synchronized 的
+     *
+     * @return
+     */
     public static StaticInnerLazy getInstance(){
         return InnerClass.INSTANCE;
     }
