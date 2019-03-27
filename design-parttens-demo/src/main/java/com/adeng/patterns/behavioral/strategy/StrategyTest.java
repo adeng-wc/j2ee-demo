@@ -10,10 +10,8 @@ import com.adeng.patterns.behavioral.strategy.pay.PayType;
 public class StrategyTest {
 
     public static void main(String[] args) {
-
         Order order = new Order("1","20180311001000009",324.45);
-
         order.pay(PayType.ALI_PAY);
-
+        order.pay(PayType.JD_PAY);
     }
 }

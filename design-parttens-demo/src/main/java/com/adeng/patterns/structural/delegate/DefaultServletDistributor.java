@@ -10,6 +10,9 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 委派模式
+ */
 public class DefaultServletDistributor extends HttpServlet {
 
     private Map<String, ControllerHandler> map = new ConcurrentHashMap<>();

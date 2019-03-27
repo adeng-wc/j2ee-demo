@@ -7,7 +7,7 @@ import com.adeng.patterns.behavioral.strategy.PayState;
  */
 public interface Payment {
 
-    public PayState pay(String uid, double amount);
+    PayState pay(String uid, double amount);
 
 }
 

@@ -7,7 +7,13 @@ package com.adeng.patterns.behavioral.strategy.pay;
  */
 public enum PayType {
 
+    /**
+     * 支付宝
+     */
     ALI_PAY(new AliPay()),
+    /**
+     * 京东支付
+     */
     JD_PAY(new JDPay());
 
     private final Payment pay;
