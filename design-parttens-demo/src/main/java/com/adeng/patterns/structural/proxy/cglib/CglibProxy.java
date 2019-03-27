@@ -6,7 +6,9 @@ import net.sf.cglib.proxy.MethodProxy;
 
 import java.lang.reflect.Method;
 
-
+/**
+ * Cglib Proxy
+ */
 public class CglibProxy {
 
     public Object getInstance(Class clazz) {
@@ -48,15 +50,12 @@ public class CglibProxy {
             }
         });*/
 
-        /**
+        /*
             MethodInterceptor 可以对代理对象方法进行调动。
-
-
          */
         enhancer.setCallback(new MethodInterceptor() {
             @Override
-            public Object intercept(Object obj, Method method,
-                                    Object[] args, MethodProxy proxy) throws Throwable {
+            public Object intercept(Object obj, Method method, Object[] args, MethodProxy proxy) throws Throwable {
 
                 System.out.println("MethodInterceptor.intercept() 被" + method.toString() + "调用");
 
@@ -68,6 +67,4 @@ public class CglibProxy {
 
         return enhancer.create();
     }
-
-
 }

@@ -11,7 +11,9 @@ import java.lang.reflect.Proxy;
  */
 public class JDKProxy<T> implements InvocationHandler {
 
-    //代理对象的引用
+    /**
+     * 代理对象的引用
+     */
     private T target;
 
     public T getInstance(T target) {
@@ -19,11 +21,10 @@ public class JDKProxy<T> implements InvocationHandler {
 
         Class clzz = target.getClass();
 
-        /*
-            通过JKD的Proxy.newProxyInstance方法创建代理对象。
+        /**
+         通过JKD的Proxy.newProxyInstance方法创建代理对象。
          */
-        return (T) Proxy.newProxyInstance(clzz.getClassLoader(),
-                clzz.getInterfaces(), this);
+        return (T) Proxy.newProxyInstance(clzz.getClassLoader(), clzz.getInterfaces(), this);
     }
 
     /**
@@ -42,7 +43,7 @@ public class JDKProxy<T> implements InvocationHandler {
 
         System.out.println("调用代理对象方法");
 
-        System.out.println("自动生成的代理对象："+proxy.getClass());
+        System.out.println("自动生成的代理对象：" + proxy.getClass());
 
         /*
             常见问题是出现递归：
@@ -55,11 +56,11 @@ public class JDKProxy<T> implements InvocationHandler {
 
             如果你在当前方法中传入`Object proxy`对象，就会出现循环调用。
          */
-        method.invoke(this.target, args);
+        Object result = method.invoke(this.target, args);
 
 
         System.out.println("结束代理");
 
-        return null;
+        return result;
     }
 }

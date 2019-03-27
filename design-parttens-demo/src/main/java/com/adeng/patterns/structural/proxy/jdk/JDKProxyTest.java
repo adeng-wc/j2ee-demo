@@ -5,18 +5,15 @@ import sun.misc.ProxyGenerator;
 
 import java.io.FileOutputStream;
 
+/**
+ * JDK Proxy Test
+ */
 public class JDKProxyTest {
 
     public static void main(String[] args) throws Exception {
 
-     /*   Person son = (Person) new JDKProxy().getInstance(new Son());
-
-        son.findJob();*/
-
-
         Dog dog = (Dog) new JDKProxy().getInstance(new HaShiQi());
-
-        dog.run();
+        System.out.println(dog.run());
 
 
         //原理：
@@ -30,9 +27,8 @@ public class JDKProxyTest {
         //JDK中有个规范，只要要是$开头的一般都是自动生成的
 
         //通过反编译工具可以查看源代码
-        byte [] bytes = ProxyGenerator.generateProxyClass("$Proxy0",new Class[]{Dog.class});
-        FileOutputStream os = new FileOutputStream(
-                JDKProxyTest.class.getResource("/").getPath()+"$Proxy0.class");
+        byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy0", new Class[]{Dog.class});
+        FileOutputStream os = new FileOutputStream(JDKProxyTest.class.getResource("/").getPath() + "$Proxy0.class");
         os.write(bytes);
         os.close();
 

@@ -1,5 +1,8 @@
 package com.adeng.patterns.structural.proxy.cglib;
 
+/**
+ *
+ */
 public class ChaiQuan {
 
     public String hello(String str) {
@@ -7,7 +10,6 @@ public class ChaiQuan {
     }
 
     public void run() {
-
         System.out.println("柴犬 run");
     }
 }
