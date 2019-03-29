@@ -7,7 +7,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 用于标注依赖注入的参数。
+ * 用于标注Controller组件
  *
  * @Author: Adengdeng
  * @Date: Create in 下午11:36 2018
@@ -15,6 +15,6 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface MvcAutowired {
+public @interface MyController {
     String value() default "";
 }

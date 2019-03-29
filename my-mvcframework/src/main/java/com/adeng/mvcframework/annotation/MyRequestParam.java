@@ -12,9 +12,9 @@ import java.lang.annotation.Target;
  * @Author: Adengdeng
  * @Date: Create in 下午11:36 2018
  */
-@Target({ElementType.TYPE})
+@Target({ElementType.PARAMETER})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface MvcRequestParam {
+public @interface MyRequestParam {
     String value() default "";
 }

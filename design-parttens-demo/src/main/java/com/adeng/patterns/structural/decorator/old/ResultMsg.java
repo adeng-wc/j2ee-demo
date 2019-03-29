@@ -2,8 +2,10 @@ package com.adeng.patterns.structural.decorator.old;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
 @AllArgsConstructor
 public class ResultMsg {
 
@@ -11,9 +13,4 @@ public class ResultMsg {
     private String msg;
     private Object data;
 
-    public ResultMsg(int code, String msg, Object data) {
-        this.code = code;
-        this.msg = msg;
-        this.data = data;
-    }
 }
