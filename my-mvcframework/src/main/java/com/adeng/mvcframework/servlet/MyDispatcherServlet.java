@@ -1,6 +1,9 @@
 package com.adeng.mvcframework.servlet;
 
-import com.adeng.mvcframework.annotation.*;
+import com.adeng.mvcframework.annotation.MyAutowired;
+import com.adeng.mvcframework.annotation.MyController;
+import com.adeng.mvcframework.annotation.MyRequestMapping;
+import com.adeng.mvcframework.annotation.MyService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -10,11 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * 自定义HttpServlet
@@ -48,7 +52,8 @@ public class MyDispatcherServlet extends HttpServlet {
     /**
      * 保存 url 和 Method
      */
-    private Map<String, Method> handlerMapping = new HashMap<>();
+//    private Map<String, Method> handlerMapping = new HashMap<>();
+    private List<MyHandlerMapping> handlerMapping = new ArrayList<>();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -72,55 +77,86 @@ public class MyDispatcherServlet extends HttpServlet {
      * @param resp
      */
     private void doSispatch(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        String url = req.getRequestURI();
-        String contextPath = req.getContextPath();
-        url = url.replaceAll(contextPath, "").replaceAll("/+", "/");
 
-        if (!this.handlerMapping.containsKey(url)) {
+        MyHandlerMapping handler = getHandler(req);
+        if (handler == null) {
             resp.getWriter().write("404 Not Found!!!");
             return;
         }
 
-        Method method = this.handlerMapping.get(url);
-        String beanName = toLowerFirstCase(method.getDeclaringClass().getSimpleName());
+        //获得方法的形参列表
+        Class<?>[] paramTypes = handler.getParamTypes();
+        Object[] paramValues = new Object[paramTypes.length];
 
-
-        //从reqest中拿到url传过来的参数
         Map<String, String[]> params = req.getParameterMap();
+        for (Map.Entry<String, String[]> parm : params.entrySet()) {
+            String value = Arrays.toString(parm.getValue()).replaceAll("\\[|\\]", "")
+                    .replaceAll("\\s", ",");
 
-        //获取方法的形参列表
-        Class<?>[] parameterTypes = method.getParameterTypes();
-        Annotation[][] annotations = method.getParameterAnnotations();
-        Object[] paramValues = new Object[parameterTypes.length];
-        for (int i = 0; i < parameterTypes.length; i++) {
-            Class parameterType = parameterTypes[i];
-            //不能用instanceof，parameterType它不是实参，而是形参
-            if (parameterType == HttpServletRequest.class) {
-                paramValues[i] = req;
+            if (!handler.paramIndexMapping.containsKey(parm.getKey())) {
                 continue;
-            } else if (parameterType == HttpServletResponse.class) {
-                paramValues[i] = resp;
-                continue;
-            } else if (parameterType == String.class) {
-
-                Annotation[] as = annotations[i];
-
-                for (Annotation a : as) {
-                    if (a.annotationType() == MyRequestParam.class) {
-                        MyRequestParam requestParam = (MyRequestParam) a;
-
-                        for (Map.Entry<String, String[]> param : params.entrySet()) {
-                            String value = Arrays.toString(param.getValue())
-                                    .replaceAll("\\[|\\]", "")
-                                    .replaceAll("\\s", ",");
-                            paramValues[i] = value;
-                        }
-                    }
-                }
             }
+
+            int index = handler.paramIndexMapping.get(parm.getKey());
+            paramValues[index] = convert(paramTypes[index], value);
         }
 
-        method.invoke(ioc.get(beanName), paramValues);
+        if (handler.paramIndexMapping.containsKey(HttpServletRequest.class.getName())) {
+            int reqIndex = handler.paramIndexMapping.get(HttpServletRequest.class.getName());
+            paramValues[reqIndex] = req;
+        }
+
+        if (handler.paramIndexMapping.containsKey(HttpServletResponse.class.getName())) {
+            int respIndex = handler.paramIndexMapping.get(HttpServletResponse.class.getName());
+            paramValues[respIndex] = resp;
+        }
+
+        Object returnValue = handler.getMethod().invoke(handler.getController(), paramValues);
+        if (returnValue == null || returnValue instanceof Void) {
+            return;
+        }
+        resp.getWriter().write(returnValue.toString());
+    }
+
+    //url传过来的参数都是String类型的，HTTP是基于字符串协议
+    //只需要把String转换为任意类型就好
+    private Object convert(Class<?> type, String value) {
+        //如果是int
+        if (Integer.class == type) {
+            return Integer.valueOf(value);
+        } else if (Double.class == type) {
+            return Double.valueOf(value);
+        }
+        //如果还有double或者其他类型，继续加if
+        //这时候，我们应该想到策略模式了
+        //在这里暂时不实现，希望小伙伴自己来实现
+        return value;
+    }
+
+    /**
+     * 通过 request 查找对应的 MyHandlerMapping
+     *
+     * @param req
+     * @return
+     */
+    private MyHandlerMapping getHandler(HttpServletRequest req) {
+        if (handlerMapping.isEmpty()) {
+            return null;
+        }
+        //绝对路径
+        String url = req.getRequestURI();
+        //处理成相对路径
+        String contextPath = req.getContextPath();
+        url = url.replaceAll(contextPath, "").replaceAll("/+", "/");
+
+        for (MyHandlerMapping handler : this.handlerMapping) {
+            Matcher matcher = handler.getPattern().matcher(url);
+            if (!matcher.matches()) {
+                continue;
+            }
+            return handler;
+        }
+        return null;
     }
 
     @Override
@@ -281,12 +317,11 @@ public class MyDispatcherServlet extends HttpServlet {
                     continue;
                 }
 
-                String url = (baseUrl + "/" + method.getAnnotation(MyRequestMapping.class).value()).replaceAll("/+", "/");
-                handlerMapping.put(url, method);
+                MyRequestMapping requestMapping = method.getAnnotation(MyRequestMapping.class);
+                String regex = ("/" + baseUrl + "/" + requestMapping.value()).replaceAll("/+", "/");
+                Pattern pattern = Pattern.compile(regex);
+                handlerMapping.add(new MyHandlerMapping(pattern, entry.getValue(), method));
             }
         }
-
     }
-
-
 }
