@@ -8,25 +8,26 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="codewars" />
-        <module name="common-utils" />
-        <module name="data-structure" />
-        <module name="design-parttens-demo" />
+        <module name="spring-demo" />
+        <module name="mockito-demo" />
+        <module name="mybatis-spring-mvc-demo" />
         <module name="dozer-demo" />
+        <module name="my-spring" />
         <module name="fastjson-demo" />
+        <module name="servlet-demo" />
+        <module name="my-mybatis" />
         <module name="guava-demo" />
         <module name="java8-demo" />
-        <module name="jdk-source-remark" />
-        <module name="jmx-demo" />
         <module name="lombok-demo" />
-        <module name="mockito-demo" />
-        <module name="my-mvcframework" />
-        <module name="my-mybatis" />
-        <module name="mybatis-demo" />
-        <module name="mybatis-generator-demo" />
-        <module name="mybatis-spring-mvc-demo" />
-        <module name="servlet-demo" />
-        <module name="spring-demo" />
         <module name="zxing-demo" />
+        <module name="my-mvcframework" />
+        <module name="jmx-demo" />
+        <module name="common-utils" />
+        <module name="design-parttens-demo" />
+        <module name="mybatis-demo" />
+        <module name="jdk-source-remark" />
+        <module name="data-structure" />
+        <module name="mybatis-generator-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -45,6 +46,7 @@
       <module name="mockito-demo" target="1.8" />
       <module name="my-mvcframework" target="1.8" />
       <module name="my-mybatis" target="1.8" />
+      <module name="my-spring" target="1.8" />
       <module name="mybatis-demo" target="1.8" />
       <module name="mybatis-generator-demo" target="1.8" />
       <module name="myBatis-Spring-boot-demo" target="1.8" />

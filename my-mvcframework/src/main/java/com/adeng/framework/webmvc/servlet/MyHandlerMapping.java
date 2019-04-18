@@ -1,6 +1,6 @@
-package com.adeng.mvcframework.servlet;
+package com.adeng.framework.webmvc.servlet;
 
-import com.adeng.mvcframework.annotation.MyRequestParam;
+import com.adeng.framework.webmvc.annotation.MyRequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

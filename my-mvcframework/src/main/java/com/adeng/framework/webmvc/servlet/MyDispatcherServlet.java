@@ -1,9 +1,9 @@
-package com.adeng.mvcframework.servlet;
+package com.adeng.framework.webmvc.servlet;
 
-import com.adeng.mvcframework.annotation.MyAutowired;
-import com.adeng.mvcframework.annotation.MyController;
-import com.adeng.mvcframework.annotation.MyRequestMapping;
-import com.adeng.mvcframework.annotation.MyService;
+import com.adeng.framework.webmvc.annotation.MyAutowired;
+import com.adeng.framework.webmvc.annotation.MyController;
+import com.adeng.framework.webmvc.annotation.MyRequestMapping;
+import com.adeng.framework.webmvc.annotation.MyService;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;

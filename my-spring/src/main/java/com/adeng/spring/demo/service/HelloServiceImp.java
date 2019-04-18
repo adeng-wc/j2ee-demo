@@ -1,6 +1,7 @@
-package com.adeng.demo.mvc.service;
+package com.adeng.spring.demo.service;
 
-import com.adeng.framework.webmvc.annotation.MyService;
+
+import com.adeng.spring.framework.annotation.MyService;
 
 /**
  * @author hzwengcheng 2019-03-29 15:13

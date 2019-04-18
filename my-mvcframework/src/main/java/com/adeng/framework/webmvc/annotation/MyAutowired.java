@@ -1,4 +1,4 @@
-package com.adeng.mvcframework.annotation;
+package com.adeng.framework.webmvc.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;

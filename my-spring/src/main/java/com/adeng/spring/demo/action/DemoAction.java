@@ -1,10 +1,10 @@
-package com.adeng.demo.mvc.action;
+package com.adeng.spring.demo.action;
 
-import com.adeng.demo.mvc.service.HelloService;
-import com.adeng.framework.webmvc.annotation.MyAutowired;
-import com.adeng.framework.webmvc.annotation.MyController;
-import com.adeng.framework.webmvc.annotation.MyRequestMapping;
-import com.adeng.framework.webmvc.annotation.MyRequestParam;
+import com.adeng.spring.framework.annotation.MyAutowired;
+import com.adeng.spring.framework.annotation.MyController;
+import com.adeng.spring.framework.annotation.MyRequestMapping;
+import com.adeng.spring.framework.annotation.MyRequestParam;
+import com.adeng.spring.demo.service.HelloService;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

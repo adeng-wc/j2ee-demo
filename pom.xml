@@ -29,6 +29,8 @@
         <module>zxing-demo</module>
         <module>data-structure</module>
         <module>mockito-demo</module>
+        <module>my-spring</module>
+        <module>my-spring</module>
     </modules>
 
     <properties>

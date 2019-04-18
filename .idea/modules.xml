@@ -17,6 +17,7 @@
       <module fileurl="file://$PROJECT_DIR$/mockito-demo/mockito-demo.iml" filepath="$PROJECT_DIR$/mockito-demo/mockito-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" filepath="$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-mybatis/my-mybatis.iml" filepath="$PROJECT_DIR$/my-mybatis/my-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/my-spring/my-spring.iml" filepath="$PROJECT_DIR$/my-spring/my-spring.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" filepath="$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-generator-demo/mybatis-generator-demo.iml" filepath="$PROJECT_DIR$/mybatis-generator-demo/mybatis-generator-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mybatis-spring-mvc-demo/mybatis-spring-mvc-demo.iml" filepath="$PROJECT_DIR$/mybatis-spring-mvc-demo/mybatis-spring-mvc-demo.iml" />
