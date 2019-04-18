@@ -80,7 +80,7 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory {
      * @return
      */
     @Override
-    public Object getBean(String beanName) {
+    public Object getBean(String beanName) throws Exception {
         MyBeanDefinition beanDefinition = this.beanDefinitionMap.get(beanName);
 
         // 1. 初始化

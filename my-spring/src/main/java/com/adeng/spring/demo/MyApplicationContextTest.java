@@ -1,5 +1,6 @@
 package com.adeng.spring.demo;
 
+import com.adeng.spring.demo.service.HelloService;
 import com.adeng.spring.framework.context.MyApplicationContext;
 
 /**
@@ -9,7 +10,11 @@ public class MyApplicationContextTest {
 
     public static void main(String[] args) {
         MyApplicationContext context = new MyApplicationContext("classpath:application.properties");
-        context.getBean("demoAction");
-        System.out.println(context);
+        try {
+            context.getBean("demoAction");
+            context.getBean(HelloService.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
