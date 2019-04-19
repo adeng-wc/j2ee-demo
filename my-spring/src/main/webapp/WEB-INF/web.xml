@@ -9,9 +9,9 @@
     <!-- framework config start -->
     <servlet>
         <servlet-name>myDispatcherServlet</servlet-name>
-        <servlet-class>com.adeng.spring.framework.webmvc.MyDispatcherServlet</servlet-class>
+        <servlet-class>com.adeng.spring.framework.webmvc.servlet.MyDispatcherServlet</servlet-class>
         <init-param>
-            <param-name>location</param-name>
+            <param-name>contextConfigLocation</param-name>
             <param-value>application.properties</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>

@@ -5,6 +5,7 @@ import com.adeng.spring.framework.annotation.MyController;
 import com.adeng.spring.framework.annotation.MyService;
 import com.adeng.spring.framework.beans.MyBeanWrapper;
 import com.adeng.spring.framework.beans.config.MyBeanDefinition;
+import com.adeng.spring.framework.beans.config.MyBeanPostProcessor;
 import com.adeng.spring.framework.beans.support.MyBeanDefinitionReader;
 import com.adeng.spring.framework.beans.support.MyDefaultListableBeanFactory;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
@@ -83,13 +85,26 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory {
     public Object getBean(String beanName) throws Exception {
         MyBeanDefinition beanDefinition = this.beanDefinitionMap.get(beanName);
 
+        // TODO bean 初始化的事件通知待实现
+        MyBeanPostProcessor beanPostProcessor = new MyBeanPostProcessor();
+
         // 1. 初始化
-        MyBeanWrapper beanWrapper = instantiateBean(beanName, beanDefinition);
+        Object instance = null;
+        // 初始化前
+        beanPostProcessor.postProcessBeforeInitialization(instance, beanName);
+        instance = instantiateBean(beanName, beanDefinition);
+        MyBeanWrapper beanWrapper = new MyBeanWrapper(instance);
+
+        // 工厂模式 + 策略模式
 
         // 把 beanWrapper 存入 IOC 缓存
         this.factoryBeanInstanceCache.put(beanName, beanWrapper);
 
+        // 注入前，实例化后
+        beanPostProcessor.postProcessAfterInitialization(instance, beanName);
+
         // 2. 注入
+        //TODO 循环注入待实现
         populateBean(beanName, new MyBeanDefinition(), beanWrapper);
 
         return this.factoryBeanInstanceCache.get(beanName).getWrappedInstance();
@@ -141,7 +156,7 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory {
      * @param beanName
      * @param beanDefinition
      */
-    private MyBeanWrapper instantiateBean(String beanName, MyBeanDefinition beanDefinition) {
+    private Object instantiateBean(String beanName, MyBeanDefinition beanDefinition) {
         //1.拿到要实例化的对象的类名
         String className = beanDefinition.getBeanClassName();
 
@@ -162,6 +177,23 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory {
 
         //3.把这个对象封装到 beanWrapper 中
 
-        return new MyBeanWrapper(instance);
+        return instance;
+    }
+
+    /**
+     * 不返回map，最少知道原则
+     *
+     * @return
+     */
+    public String[] getBeanDefinitionNames() {
+        return this.beanDefinitionMap.keySet().toArray(new String[this.beanDefinitionMap.size()]);
+    }
+
+    public int getBeanDefinitionCount() {
+        return this.beanDefinitionMap.size();
+    }
+
+    public Properties getConfig(){
+        return this.reader.getConfig();
     }
 }
