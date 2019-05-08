@@ -3,6 +3,11 @@ package com.adeng.spring.framework.context;
 import com.adeng.spring.framework.annotation.MyAutowired;
 import com.adeng.spring.framework.annotation.MyController;
 import com.adeng.spring.framework.annotation.MyService;
+import com.adeng.spring.framework.aop.MyAopProxy;
+import com.adeng.spring.framework.aop.MyCglibAopProxy;
+import com.adeng.spring.framework.aop.MyJdkDynamicAopProxy;
+import com.adeng.spring.framework.aop.config.MyAopConfig;
+import com.adeng.spring.framework.aop.support.MyAdvisedSupport;
 import com.adeng.spring.framework.beans.MyBeanWrapper;
 import com.adeng.spring.framework.beans.config.MyBeanDefinition;
 import com.adeng.spring.framework.beans.config.MyBeanPostProcessor;
@@ -167,6 +172,15 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory {
                 instance = this.singletonObjects.get(className);
             } else {
                 Class<?> clazz = Class.forName(className);
+                MyAdvisedSupport config = instantionAopConfig(beanDefinition);
+                config.setTargetClass(clazz);
+                config.setTarget(instance);
+
+                // 匹配 pointCut， 创建代理
+                if (config.pointCutMatch()) {
+                    instance = createProxy(config).getProxy();
+                }
+
                 instance = clazz.newInstance();
                 this.singletonObjects.put(className, instance);
                 this.singletonObjects.put(beanDefinition.getFactoryBeanName(), instance);
@@ -178,6 +192,38 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory {
         //3.把这个对象封装到 beanWrapper 中
 
         return instance;
+    }
+
+    /**
+     * 创建代理对象
+     *
+     * @param config
+     * @return
+     */
+    private MyAopProxy createProxy(MyAdvisedSupport config) {
+        Class targetClass = config.getTargetClass();
+        if (targetClass.getInterfaces().length > 0) {
+            return new MyJdkDynamicAopProxy(config);
+        }
+
+        return new MyCglibAopProxy(config);
+    }
+
+    /**
+     * 从配置中读取 AOP 配置
+     *
+     * @param beanDefinition
+     * @return
+     */
+    private MyAdvisedSupport instantionAopConfig(MyBeanDefinition beanDefinition) {
+        MyAopConfig config = new MyAopConfig();
+        config.setPointCut(this.reader.getConfig().getProperty("pointCut"));
+        config.setAspectClass(this.reader.getConfig().getProperty("aspectClass"));
+        config.setAspectBefore(this.reader.getConfig().getProperty("aspectBefore"));
+        config.setAspectAfter(this.reader.getConfig().getProperty("aspectAfter"));
+        config.setAspectAfterThrow(this.reader.getConfig().getProperty("aspectAfterThrow"));
+        config.setAspectAfterThrowName(this.reader.getConfig().getProperty("aspectAfterThrowName"));
+        return new MyAdvisedSupport(config);
     }
 
     /**
@@ -193,7 +239,7 @@ public class MyApplicationContext extends MyDefaultListableBeanFactory {
         return this.beanDefinitionMap.size();
     }
 
-    public Properties getConfig(){
+    public Properties getConfig() {
         return this.reader.getConfig();
     }
 }
