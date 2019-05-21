@@ -32,6 +32,7 @@
         <module>my-spring</module>
         <module>my-spring</module>
         <module>java-image-demo</module>
+        <module>spring-framework-samples</module>
     </modules>
 
     <properties>

@@ -24,6 +24,7 @@
       <module fileurl="file://$PROJECT_DIR$/mybatis-spring-mvc-demo/mybatis-spring-mvc-demo.iml" filepath="$PROJECT_DIR$/mybatis-spring-mvc-demo/mybatis-spring-mvc-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/servlet-demo/servlet-demo.iml" filepath="$PROJECT_DIR$/servlet-demo/servlet-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring-demo/spring-demo.iml" filepath="$PROJECT_DIR$/spring-demo/spring-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-framework-samples/spring-framework-samples.iml" filepath="$PROJECT_DIR$/spring-framework-samples/spring-framework-samples.iml" />
       <module fileurl="file://$PROJECT_DIR$/zxing-demo/zxing-demo.iml" filepath="$PROJECT_DIR$/zxing-demo/zxing-demo.iml" />
     </modules>
   </component>

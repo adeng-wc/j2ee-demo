@@ -9,26 +9,27 @@
         <outputRelativeToContentRoot value="true" />
         <module name="codewars" />
         <module name="spring-demo" />
+        <module name="mockito-demo" />
         <module name="mybatis-spring-mvc-demo" />
         <module name="dozer-demo" />
         <module name="my-spring" />
-        <module name="mybatis-generator-demo" />
+        <module name="spring-framework-samples" />
         <module name="fastjson-demo" />
         <module name="servlet-demo" />
         <module name="my-mybatis" />
-        <module name="guava-demo" />
+        <module name="my-mvcframework" />
         <module name="java8-demo" />
         <module name="lombok-demo" />
         <module name="zxing-demo" />
-        <module name="my-mvcframework" />
+        <module name="java-image-demo" />
         <module name="jmx-demo" />
         <module name="common-utils" />
         <module name="design-parttens-demo" />
         <module name="mybatis-demo" />
         <module name="jdk-source-remark" />
-        <module name="java-image-demo" />
         <module name="data-structure" />
-        <module name="mockito-demo" />
+        <module name="guava-demo" />
+        <module name="mybatis-generator-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -55,6 +56,7 @@
       <module name="mybatis-spring-mvc-demo" target="1.8" />
       <module name="servlet-demo" target="1.8" />
       <module name="spring-demo" target="1.8" />
+      <module name="spring-framework-samples" target="1.8" />
       <module name="zxing-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
