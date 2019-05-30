@@ -33,6 +33,7 @@
         <module>my-spring</module>
         <module>java-image-demo</module>
         <module>spring-framework-samples</module>
+        <module>joda-time-demo</module>
     </modules>
 
     <properties>
@@ -73,7 +74,6 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
-                <scope>test</scope>
             </dependency>
 
             <!-- Spring start -->
