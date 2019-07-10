@@ -34,6 +34,9 @@
         <module>java-image-demo</module>
         <module>spring-framework-samples</module>
         <module>joda-time-demo</module>
+        <module>rxjava-demo</module>
+        <module>MsgpackDemo</module>
+        <module>msgpack-demo</module>
     </modules>
 
     <properties>
