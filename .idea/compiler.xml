@@ -8,29 +8,32 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="codewars" />
-        <module name="spring-demo" />
+        <module name="joda-time-demo" />
         <module name="spring-framework-samples" />
         <module name="mybatis-spring-mvc-demo" />
         <module name="dozer-demo" />
         <module name="my-spring" />
-        <module name="mybatis-generator-demo" />
+        <module name="mockito-demo" />
         <module name="fastjson-demo" />
         <module name="servlet-demo" />
         <module name="my-mybatis" />
         <module name="my-mvcframework" />
+        <module name="rxjava-demo" />
         <module name="java8-demo" />
-        <module name="joda-time-demo" />
         <module name="guava-demo" />
         <module name="lombok-demo" />
         <module name="zxing-demo" />
         <module name="jmx-demo" />
+        <module name="Leetcode" />
+        <module name="spring-demo" />
         <module name="common-utils" />
         <module name="design-parttens-demo" />
         <module name="java-image-demo" />
+        <module name="msgpack-demo" />
         <module name="mybatis-demo" />
         <module name="data-structure" />
         <module name="jdk-source-remark" />
-        <module name="mockito-demo" />
+        <module name="mybatis-generator-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -47,8 +50,11 @@
       <module name="jdk-source-remark" target="1.8" />
       <module name="jmx-demo" target="1.8" />
       <module name="joda-time-demo" target="1.8" />
+      <module name="Leetcode" target="1.8" />
       <module name="lombok-demo" target="1.8" />
       <module name="mockito-demo" target="1.8" />
+      <module name="msgpack-demo" target="1.8" />
+      <module name="MsgpackDemo" target="1.8" />
       <module name="my-mvcframework" target="1.8" />
       <module name="my-mybatis" target="1.8" />
       <module name="my-spring" target="1.8" />
@@ -56,6 +62,7 @@
       <module name="mybatis-generator-demo" target="1.8" />
       <module name="myBatis-Spring-boot-demo" target="1.8" />
       <module name="mybatis-spring-mvc-demo" target="1.8" />
+      <module name="rxjava-demo" target="1.8" />
       <module name="servlet-demo" target="1.8" />
       <module name="spring-demo" target="1.8" />
       <module name="spring-framework-samples" target="1.8" />

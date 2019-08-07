@@ -37,6 +37,7 @@
         <module>rxjava-demo</module>
         <module>MsgpackDemo</module>
         <module>msgpack-demo</module>
+        <module>Leetcode</module>
     </modules>
 
     <properties>
