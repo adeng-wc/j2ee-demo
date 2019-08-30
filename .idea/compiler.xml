@@ -10,30 +10,31 @@
         <module name="codewars" />
         <module name="joda-time-demo" />
         <module name="spring-framework-samples" />
+        <module name="java-emoji-converter-demo" />
         <module name="mybatis-spring-mvc-demo" />
         <module name="dozer-demo" />
         <module name="my-spring" />
-        <module name="mockito-demo" />
+        <module name="mybatis-generator-demo" />
         <module name="fastjson-demo" />
         <module name="servlet-demo" />
         <module name="my-mybatis" />
-        <module name="my-mvcframework" />
+        <module name="guava-demo" />
+        <module name="design-parttens-demo" />
         <module name="rxjava-demo" />
         <module name="java8-demo" />
-        <module name="guava-demo" />
         <module name="lombok-demo" />
         <module name="zxing-demo" />
+        <module name="my-mvcframework" />
         <module name="jmx-demo" />
-        <module name="Leetcode" />
         <module name="spring-demo" />
         <module name="common-utils" />
-        <module name="design-parttens-demo" />
+        <module name="Leetcode" />
         <module name="java-image-demo" />
         <module name="msgpack-demo" />
         <module name="mybatis-demo" />
         <module name="data-structure" />
         <module name="jdk-source-remark" />
-        <module name="mybatis-generator-demo" />
+        <module name="mockito-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -45,6 +46,7 @@
       <module name="fastjson-demo" target="1.8" />
       <module name="guava-demo" target="1.8" />
       <module name="j2ee-demo" target="1.8" />
+      <module name="java-emoji-converter-demo" target="1.8" />
       <module name="java-image-demo" target="1.8" />
       <module name="java8-demo" target="1.8" />
       <module name="jdk-source-remark" target="1.8" />
