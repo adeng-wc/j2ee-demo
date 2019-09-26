@@ -38,6 +38,7 @@
         <module>MsgpackDemo</module>
         <module>msgpack-demo</module>
         <module>Leetcode</module>
+        <module>httpclient-demo</module>
     </modules>
 
     <properties>

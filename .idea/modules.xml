@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/dozer-demo/dozer-demo.iml" filepath="$PROJECT_DIR$/dozer-demo/dozer-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/fastjson-demo/fastjson-demo.iml" filepath="$PROJECT_DIR$/fastjson-demo/fastjson-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/guava-demo/guava-demo.iml" filepath="$PROJECT_DIR$/guava-demo/guava-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/httpclient-demo/httpclient-demo.iml" filepath="$PROJECT_DIR$/httpclient-demo/httpclient-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/j2ee-demo.iml" filepath="$PROJECT_DIR$/j2ee-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-emoji-converter-demo/java-emoji-converter-demo.iml" filepath="$PROJECT_DIR$/java-emoji-converter-demo/java-emoji-converter-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-image-demo/java-image-demo.iml" filepath="$PROJECT_DIR$/java-image-demo/java-image-demo.iml" />
