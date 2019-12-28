@@ -35,10 +35,10 @@
         <module>spring-framework-samples</module>
         <module>joda-time-demo</module>
         <module>rxjava-demo</module>
-        <module>MsgpackDemo</module>
         <module>msgpack-demo</module>
         <module>Leetcode</module>
         <module>httpclient-demo</module>
+        <module>netty-demo</module>
     </modules>
 
     <properties>

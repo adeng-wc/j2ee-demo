@@ -8,34 +8,35 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="codewars" />
-        <module name="joda-time-demo" />
         <module name="spring-framework-samples" />
-        <module name="java-emoji-converter-demo" />
-        <module name="mybatis-spring-mvc-demo" />
-        <module name="dozer-demo" />
-        <module name="my-spring" />
-        <module name="mockito-demo" />
-        <module name="fastjson-demo" />
-        <module name="httpclient-demo" />
-        <module name="lombok-demo" />
-        <module name="my-mybatis" />
-        <module name="guava-demo" />
-        <module name="rxjava-demo" />
-        <module name="servlet-demo" />
-        <module name="java8-demo" />
-        <module name="zxing-demo" />
-        <module name="my-mvcframework" />
-        <module name="jmx-demo" />
-        <module name="Leetcode" />
-        <module name="spring-demo" />
         <module name="common-utils" />
-        <module name="design-parttens-demo" />
-        <module name="java-image-demo" />
+        <module name="dozer-demo" />
+        <module name="rxjava-demo" />
+        <module name="joda-time-demo" />
+        <module name="spring-demo" />
+        <module name="zxing-demo" />
+        <module name="lombok-demo" />
+        <module name="mybatis-spring-mvc-demo" />
+        <module name="java8-demo" />
         <module name="msgpack-demo" />
-        <module name="mybatis-demo" />
-        <module name="data-structure" />
         <module name="jdk-source-remark" />
+        <module name="java-emoji-converter-demo" />
+        <module name="java-image-demo" />
+        <module name="netty-demo" />
+        <module name="Leetcode" />
+        <module name="my-spring" />
+        <module name="httpclient-demo" />
+        <module name="my-mvcframework" />
+        <module name="guava-demo" />
         <module name="mybatis-generator-demo" />
+        <module name="mybatis-demo" />
+        <module name="servlet-demo" />
+        <module name="mockito-demo" />
+        <module name="jmx-demo" />
+        <module name="fastjson-demo" />
+        <module name="design-parttens-demo" />
+        <module name="my-mybatis" />
+        <module name="data-structure" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -66,6 +67,7 @@
       <module name="mybatis-generator-demo" target="1.8" />
       <module name="myBatis-Spring-boot-demo" target="1.8" />
       <module name="mybatis-spring-mvc-demo" target="1.8" />
+      <module name="netty-demo" target="1.8" />
       <module name="rxjava-demo" target="1.8" />
       <module name="servlet-demo" target="1.8" />
       <module name="spring-demo" target="1.8" />
