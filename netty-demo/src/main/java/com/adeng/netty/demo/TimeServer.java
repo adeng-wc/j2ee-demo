@@ -38,6 +38,9 @@ public class TimeServer {
     private class ChildChannelHandler extends ChannelInitializer<SocketChannel> {
         @Override
         protected void initChannel(SocketChannel ch) throws Exception {
+            // 4.1.9.Final 不支持 StringDecoder 和 LineBasedFrameDecoder
+//            ch.pipeline().addLast("lineBasedFrameDecoder", new LineBasedFrameDecoder(1024));
+//            ch.pipeline().addLast("stringDecoder", new StringDecoder());
             ch.pipeline().addLast("timeServerHandler", new TimeServerHandler());
         }
     }
