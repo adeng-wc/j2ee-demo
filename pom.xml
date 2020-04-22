@@ -39,6 +39,7 @@
         <module>Leetcode</module>
         <module>httpclient-demo</module>
         <module>netty-demo</module>
+        <module>EncryptAndDncrypt</module>
     </modules>
 
     <properties>
