@@ -1,4 +1,4 @@
-package com.adeng.fastjson;
+package com.adeng.json.fastjson;
 
 import lombok.Builder;
 import lombok.Data;

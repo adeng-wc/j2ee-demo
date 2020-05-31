@@ -1,4 +1,4 @@
-package com.adeng.fastjson;
+package com.adeng.json.fastjson;
 
 import com.alibaba.fastjson.JSONObject;
 
@@ -13,5 +13,4 @@ public class FastJsonTest {
 
         System.out.println(JSONObject.toJSON(a));
     }
-
 }

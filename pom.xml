@@ -39,6 +39,8 @@
         <module>httpclient-demo</module>
         <module>netty-demo</module>
         <module>EncryptAndDncrypt</module>
+        <module>json-demo</module>
+        <module>image-demo</module>
     </modules>
 
     <properties>

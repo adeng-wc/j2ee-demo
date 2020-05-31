@@ -9,32 +9,33 @@
         <outputRelativeToContentRoot value="true" />
         <module name="codewars" />
         <module name="spring-framework-samples" />
+        <module name="json-demo" />
         <module name="Leetcode" />
         <module name="dozer-demo" />
-        <module name="rxjava-demo" />
+        <module name="java-emoji-converter-demo" />
         <module name="joda-time-demo" />
         <module name="spring-demo" />
         <module name="zxing-demo" />
         <module name="lombok-demo" />
         <module name="mybatis-spring-mvc-demo" />
+        <module name="rxjava-demo" />
         <module name="java8-demo" />
         <module name="msgpack-demo" />
+        <module name="servlet-demo" />
         <module name="EncryptAndDncrypt" />
-        <module name="common-utils" />
         <module name="java-image-demo" />
         <module name="netty-demo" />
+        <module name="image-demo" />
         <module name="jdk-source-remark" />
-        <module name="guava-demo" />
         <module name="my-spring" />
         <module name="httpclient-demo" />
         <module name="my-mvcframework" />
-        <module name="mybatis-demo" />
+        <module name="guava-demo" />
         <module name="mybatis-generator-demo" />
-        <module name="java-emoji-converter-demo" />
-        <module name="servlet-demo" />
+        <module name="mybatis-demo" />
+        <module name="common-utils" />
         <module name="mockito-demo" />
         <module name="jmx-demo" />
-        <module name="fastjson-demo" />
         <module name="design-parttens-demo" />
         <module name="my-mybatis" />
         <module name="data-structure" />
@@ -50,6 +51,7 @@
       <module name="fastjson-demo" target="1.8" />
       <module name="guava-demo" target="1.8" />
       <module name="httpclient-demo" target="1.8" />
+      <module name="image-demo" target="1.8" />
       <module name="j2ee-demo" target="1.8" />
       <module name="java-emoji-converter-demo" target="1.8" />
       <module name="java-image-demo" target="1.8" />
@@ -57,6 +59,7 @@
       <module name="jdk-source-remark" target="1.8" />
       <module name="jmx-demo" target="1.8" />
       <module name="joda-time-demo" target="1.8" />
+      <module name="json-demo" target="1.8" />
       <module name="Leetcode" target="1.8" />
       <module name="lombok-demo" target="1.8" />
       <module name="mockito-demo" target="1.8" />

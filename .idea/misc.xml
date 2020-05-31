@@ -9,6 +9,7 @@
     <option name="ignoredFiles">
       <set>
         <option value="$PROJECT_DIR$/MsgpackDemo/pom.xml" />
+        <option value="$PROJECT_DIR$/fastjson-demo/pom.xml" />
         <option value="$PROJECT_DIR$/my-spring/pom.xml" />
       </set>
     </option>
