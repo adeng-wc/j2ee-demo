@@ -21,6 +21,7 @@
       <module fileurl="file://$PROJECT_DIR$/joda-time-demo/joda-time-demo.iml" filepath="$PROJECT_DIR$/joda-time-demo/joda-time-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/json-demo/json-demo.iml" filepath="$PROJECT_DIR$/json-demo/json-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/lombok-demo/lombok-demo.iml" filepath="$PROJECT_DIR$/lombok-demo/lombok-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/minio-client-demo/minio-client-demo.iml" filepath="$PROJECT_DIR$/minio-client-demo/minio-client-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/mockito-demo/mockito-demo.iml" filepath="$PROJECT_DIR$/mockito-demo/mockito-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/msgpack-demo/msgpack-demo.iml" filepath="$PROJECT_DIR$/msgpack-demo/msgpack-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" filepath="$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" />

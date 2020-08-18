@@ -24,7 +24,6 @@
         <module>java8-demo</module>
         <module>guava-demo</module>
         <module>common-utils</module>
-        <module>fastjson-demo</module>
         <module>dozer-demo</module>
         <module>zxing-demo</module>
         <module>data-structure</module>
@@ -41,6 +40,7 @@
         <module>EncryptAndDncrypt</module>
         <module>json-demo</module>
         <module>image-demo</module>
+        <module>minio-client-demo</module>
     </modules>
 
     <properties>

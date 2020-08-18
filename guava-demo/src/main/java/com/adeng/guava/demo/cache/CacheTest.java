@@ -25,8 +25,10 @@ public class CacheTest {
         System.out.println(value);
         Thread.sleep(3000);
         cache.put("key2", "value2");
-        Thread.sleep(3000);
-
+        Thread.sleep(1000);
+        cache.put("key", "value");
+        Thread.sleep(2000);
+        Thread.sleep(2000);
         String value2 = cache.getIfPresent("key");
         if (value2 == null) {
             System.out.println("null is null");
