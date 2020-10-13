@@ -55,7 +55,7 @@
         <guava.version>23.0</guava.version>
         <fastjson.version>1.2.32</fastjson.version>
         <commons-lang3.version>3.4</commons-lang3.version>
-        <junit.version>4.12</junit.version>
+        <junit.version>4.13.1</junit.version>
         <slf4j-api.version>1.7.21</slf4j-api.version>
         <logback-core.version>1.1.7</logback-core.version>
         <logback-classic.version>1.1.7</logback-classic.version>
