@@ -3,7 +3,7 @@ package com.adeng.patterns.behavioral.chainstrategy;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.annotation.PostConstruct;
+//import javax.annotation.PostConstruct;
 import java.util.Objects;
 
 /**
@@ -32,7 +32,7 @@ public abstract class AbstractStrategyRouter<T, R> {
     /**
      * 类初始化时注册分发策略 Mapper
      */
-    @PostConstruct
+//    @PostConstruct
     private void abstractInit() {
         strategyMapper = registerStrategyMapper();
         Objects.requireNonNull(strategyMapper, "strategyMapper cannot be null");

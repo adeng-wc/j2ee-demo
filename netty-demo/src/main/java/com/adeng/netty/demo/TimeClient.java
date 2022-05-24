@@ -45,6 +45,7 @@ public class TimeClient {
         TimeClient client = new TimeClient();
         try {
             client.connect(port, "127.0.0.1");
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -11,20 +11,23 @@ import io.netty.channel.SimpleChannelInboundHandler;
 public class TimeServerHandler extends SimpleChannelInboundHandler<Object> {
 
     @Override
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg)
-            throws Exception {
-        System.out.println("Server start read");
+    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println("TimeServerHandler start:" + msg);
+
         ByteBuf buf = (ByteBuf) msg;
         byte[] req = new byte[buf.readableBytes()];
         buf.readBytes(req);
         String body = new String(req, "UTF-8");
 
-        System.out.println("The time server receive order : " + body);
-        String currentTime = "Query Time Order".equalsIgnoreCase(body) ? new java.util.Date(
-                System.currentTimeMillis()).toString() : "Bad Order";
+        System.out.println("TimeServerHandler receive order : " + body);
+        String currentTime = "Query Time Order".equalsIgnoreCase(body) ? new java.util.Date(System.currentTimeMillis()).toString() : "Bad Order";
+
         //异步发送应答消息给客户端: 这里并没有把消息直接写入SocketChannel,而是放入发送缓冲数组中
         ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
         ctx.write(resp);
+        ctx.flush();
+//        ctx.writeAndFlush();
+//        ctx.writeAndFlush("发送测试数据");
     }
 
     @Override
@@ -33,8 +36,7 @@ public class TimeServerHandler extends SimpleChannelInboundHandler<Object> {
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause)
-            throws Exception {
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
         ctx.close();
     }
 }

@@ -10,7 +10,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>jmx-demo</module>
-        <module>servlet-demo</module>
         <module>my-mvcframework</module>
         <module>codewars</module>
         <module>design-parttens-demo</module>
@@ -21,7 +20,7 @@
         <module>spring-demo</module>
         <module>my-mybatis</module>
         <module>lombok-demo</module>
-        <module>java8-demo</module>
+        <module>jdk-demo</module>
         <module>guava-demo</module>
         <module>common-utils</module>
         <module>dozer-demo</module>
@@ -39,29 +38,27 @@
         <module>netty-demo</module>
         <module>EncryptAndDncrypt</module>
         <module>json-demo</module>
-        <module>image-demo</module>
         <module>minio-client-demo</module>
         <module>protocol-buffer-demo</module>
+        <module>gRPC-demo</module>
+        <module>random-demo</module>
     </modules>
 
     <properties>
+        <java.version>17</java.version>
+
         <org.springframework-version>5.0.4.RELEASE</org.springframework-version>
-        <mybatis.version>3.4.6</mybatis.version>
         <mybatis-spring.version>1.3.2</mybatis-spring.version>
+
         <lombok.version>1.16.16</lombok.version>
         <druid.version>1.0.9</druid.version>
-        <java.version>1.8</java.version>
+
         <mysql.version>5.1.6</mysql.version>
         <pagehelper.version>5.0.3</pagehelper.version>
-        <guava.version>31.0.1-jre</guava.version>
         <fastjson.version>1.2.32</fastjson.version>
-        <commons-lang3.version>3.4</commons-lang3.version>
-        <junit.version>4.12</junit.version>
         <slf4j-api.version>1.7.21</slf4j-api.version>
         <logback-core.version>1.1.7</logback-core.version>
         <logback-classic.version>1.1.7</logback-classic.version>
-        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
-        <cglib.version>3.2.6</cglib.version>
     </properties>
 
     <dependencyManagement>
@@ -75,13 +72,13 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>${commons-lang3.version}</version>
+                <version>3.12.0</version>
             </dependency>
 
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>${junit.version}</version>
+                <version>4.13.2</version>
             </dependency>
 
             <!-- Spring start -->
@@ -128,7 +125,7 @@
             <dependency>
                 <groupId>org.mybatis</groupId>
                 <artifactId>mybatis</artifactId>
-                <version>${mybatis.version}</version>
+                <version>3.4.6</version>
             </dependency>
             <dependency>
                 <groupId>org.mybatis</groupId>
@@ -199,21 +196,14 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>${guava.version}</version>
+                <version>31.0.1-jre</version>
             </dependency>
 
             <dependency>
                 <groupId>javax.servlet</groupId>
                 <artifactId>javax.servlet-api</artifactId>
-                <version>${javax.servlet-api.version}</version>
+                <version>3.1.0</version>
             </dependency>
-
-            <dependency>
-                <groupId>cglib</groupId>
-                <artifactId>cglib</artifactId>
-                <version>${cglib.version}</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 
