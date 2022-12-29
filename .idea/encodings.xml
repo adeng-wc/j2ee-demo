@@ -2,6 +2,14 @@
 <project version="4">
   <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Network/java-kcp-demo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Network/java-kcp-demo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Network/kcp-demo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Network/kcp-demo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Network/kcp-netty-demo/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Network/kcp-netty-demo/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Network/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Network/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/codewars" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/design-parttens-demo" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jdk-source-remark" charset="UTF-8" />

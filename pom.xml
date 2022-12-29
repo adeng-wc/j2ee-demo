@@ -30,7 +30,6 @@
         <module>data-structure</module>
         <module>mockito-demo</module>
         <module>my-spring</module>
-        <module>java-image-demo</module>
         <module>spring-framework-samples</module>
         <module>joda-time-demo</module>
         <module>rxjava-demo</module>
@@ -44,11 +43,11 @@
         <module>protocol-buffer-demo</module>
         <module>gRPC-demo</module>
         <module>random-demo</module>
+        <module>Network</module>
     </modules>
 
     <properties>
         <java.version>17</java.version>
-
         <org.springframework-version>5.0.4.RELEASE</org.springframework-version>
         <mybatis-spring.version>1.3.2</mybatis-spring.version>
         <lombok.version>1.18.24</lombok.version>
@@ -177,7 +176,6 @@
             <!-- end of druid数据源 -->
 
             <!-- mysql -->
-
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
@@ -190,7 +188,6 @@
                 <artifactId>pagehelper</artifactId>
                 <version>${pagehelper.version}</version>
             </dependency>
-
 
             <!-- https://mvnrepository.com/artifact/com.google.guava/guava -->
             <dependency>
@@ -206,7 +203,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 
     <build>
         <plugins>

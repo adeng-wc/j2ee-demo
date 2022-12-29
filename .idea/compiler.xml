@@ -7,85 +7,60 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="codewars" />
-        <module name="spring-framework-samples" />
-        <module name="json-demo" />
-        <module name="Leetcode" />
-        <module name="dozer-demo" />
-        <module name="rxjava-demo" />
-        <module name="joda-time-demo" />
-        <module name="spring-demo" />
-        <module name="zxing-demo" />
-        <module name="minio-client-demo" />
-        <module name="lombok-demo" />
-        <module name="mybatis-spring-mvc-demo" />
-        <module name="java8-demo" />
         <module name="msgpack-demo" />
-        <module name="EncryptAndDncrypt" />
-        <module name="common-utils" />
-        <module name="java-image-demo" />
-        <module name="netty-demo" />
-        <module name="image-demo" />
-        <module name="jdk-source-remark" />
         <module name="guava-demo" />
-        <module name="my-spring" />
+        <module name="json-demo" />
+        <module name="java-kcp-demo" />
+        <module name="common-utils" />
         <module name="httpclient-demo" />
-        <module name="my-mvcframework" />
-        <module name="mybatis-demo" />
-        <module name="mybatis-generator-demo" />
+        <module name="gRPC-demo" />
+        <module name="mybatis-spring-mvc-demo" />
+        <module name="protocol-buffer-demo" />
+        <module name="EncryptAndDncrypt" />
+        <module name="rxjava-demo" />
+        <module name="jdk-demo" />
         <module name="java-emoji-converter-demo" />
-        <module name="servlet-demo" />
-        <module name="mockito-demo" />
-        <module name="jmx-demo" />
-        <module name="design-parttens-demo" />
-        <module name="my-mybatis" />
+        <module name="joda-time-demo" />
+        <module name="mybatis-generator-demo" />
+        <module name="minio-client-demo" />
+        <module name="spring-framework-samples" />
+        <module name="lombok-demo" />
+        <module name="netty-demo" />
         <module name="data-structure" />
+        <module name="zxing-demo" />
+        <module name="dozer-demo" />
+        <module name="my-spring" />
+        <module name="random-demo" />
+        <module name="jmx-demo" />
+        <module name="codewars" />
+        <module name="Leetcode" />
+        <module name="my-mvcframework" />
+        <module name="spring-demo" />
+        <module name="my-mybatis" />
+        <module name="jdk-source-remark" />
+        <module name="mybatis-demo" />
+        <module name="mockito-demo" />
+        <module name="design-parttens-demo" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="codewars" target="1.8" />
-      <module name="common-utils" target="1.8" />
-      <module name="data-structure" target="1.8" />
-      <module name="design-parttens-demo" target="1.8" />
-      <module name="dozer-demo" target="1.8" />
-      <module name="EncryptAndDncrypt" target="1.8" />
       <module name="fastjson-demo" target="1.8" />
-      <module name="guava-demo" target="1.8" />
-      <module name="httpclient-demo" target="1.8" />
       <module name="image-demo" target="1.8" />
-      <module name="j2ee-demo" target="1.8" />
       <module name="java-emoji-converter-demo" target="1.8" />
-      <module name="java-image-demo" target="1.8" />
+      <module name="java-image-demo" target="17" />
       <module name="java8-demo" target="1.8" />
-      <module name="jdk-source-remark" target="1.8" />
-      <module name="jmx-demo" target="1.8" />
-      <module name="joda-time-demo" target="1.8" />
-      <module name="json-demo" target="1.8" />
-      <module name="Leetcode" target="1.8" />
-      <module name="lombok-demo" target="1.8" />
-      <module name="minio-client-demo" target="1.8" />
-      <module name="mockito-demo" target="1.8" />
-      <module name="msgpack-demo" target="1.8" />
+      <module name="kcp-demo" target="17" />
+      <module name="kcp-netty-demo" target="17" />
       <module name="MsgpackDemo" target="1.8" />
-      <module name="my-mvcframework" target="1.8" />
-      <module name="my-mybatis" target="1.8" />
       <module name="my-spring" target="1.8" />
-      <module name="mybatis-demo" target="1.8" />
-      <module name="mybatis-generator-demo" target="1.8" />
       <module name="myBatis-Spring-boot-demo" target="1.8" />
-      <module name="mybatis-spring-mvc-demo" target="1.8" />
-      <module name="netty-demo" target="1.8" />
-      <module name="rxjava-demo" target="1.8" />
       <module name="servlet-demo" target="1.8" />
-      <module name="spring-demo" target="1.8" />
-      <module name="spring-framework-samples" target="1.8" />
-      <module name="zxing-demo" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="my-mvcframework" options="-verbose -bootclasspath /Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/jre/lib/rt.jar" />
-      <module name="my-spring" options="-verbose -bootclasspath /Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/jre/lib/rt.jar" />
+      <module name="my-mvcframework" options="-verbose -bootclasspath /Library/Java/JavaVirtualMachines/jdk1.8.0_351.jdk/Contents/Home/jre/lib/rt.jar" />
+      <module name="my-spring" options="-verbose -bootclasspath /Library/Java/JavaVirtualMachines/jdk1.8.0_351.jdk/Contents/Home/jre/lib/rt.jar" />
     </option>
   </component>
 </project>

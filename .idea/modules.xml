@@ -2,40 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/EncryptAndDncrypt/EncryptAndDncrypt.iml" filepath="$PROJECT_DIR$/EncryptAndDncrypt/EncryptAndDncrypt.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Leetcode/Leetcode.iml" filepath="$PROJECT_DIR$/Leetcode/Leetcode.iml" />
-      <module fileurl="file://$PROJECT_DIR$/codewars/codewars.iml" filepath="$PROJECT_DIR$/codewars/codewars.iml" />
-      <module fileurl="file://$PROJECT_DIR$/common-utils/common-utils.iml" filepath="$PROJECT_DIR$/common-utils/common-utils.iml" />
-      <module fileurl="file://$PROJECT_DIR$/data-structure/data-structure.iml" filepath="$PROJECT_DIR$/data-structure/data-structure.iml" />
-      <module fileurl="file://$PROJECT_DIR$/design-parttens-demo/design-parttens-demo.iml" filepath="$PROJECT_DIR$/design-parttens-demo/design-parttens-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dozer-demo/dozer-demo.iml" filepath="$PROJECT_DIR$/dozer-demo/dozer-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/guava-demo/guava-demo.iml" filepath="$PROJECT_DIR$/guava-demo/guava-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/httpclient-demo/httpclient-demo.iml" filepath="$PROJECT_DIR$/httpclient-demo/httpclient-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/image-demo/image-demo.iml" filepath="$PROJECT_DIR$/image-demo/image-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/j2ee-demo.iml" filepath="$PROJECT_DIR$/j2ee-demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-emoji-converter-demo/java-emoji-converter-demo.iml" filepath="$PROJECT_DIR$/java-emoji-converter-demo/java-emoji-converter-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java-image-demo/java-image-demo.iml" filepath="$PROJECT_DIR$/java-image-demo/java-image-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/java8-demo/java8-demo.iml" filepath="$PROJECT_DIR$/java8-demo/java8-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jdk-source-remark/jdk-source-remark.iml" filepath="$PROJECT_DIR$/jdk-source-remark/jdk-source-remark.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jmx-demo/jmx-demo.iml" filepath="$PROJECT_DIR$/jmx-demo/jmx-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/joda-time-demo/joda-time-demo.iml" filepath="$PROJECT_DIR$/joda-time-demo/joda-time-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/json-demo/json-demo.iml" filepath="$PROJECT_DIR$/json-demo/json-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/lombok-demo/lombok-demo.iml" filepath="$PROJECT_DIR$/lombok-demo/lombok-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/minio-client-demo/minio-client-demo.iml" filepath="$PROJECT_DIR$/minio-client-demo/minio-client-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mockito-demo/mockito-demo.iml" filepath="$PROJECT_DIR$/mockito-demo/mockito-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/msgpack-demo/msgpack-demo.iml" filepath="$PROJECT_DIR$/msgpack-demo/msgpack-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" filepath="$PROJECT_DIR$/my-mvcframework/my-mvcframework.iml" />
-      <module fileurl="file://$PROJECT_DIR$/my-mybatis/my-mybatis.iml" filepath="$PROJECT_DIR$/my-mybatis/my-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-spring/my-spring.iml" filepath="$PROJECT_DIR$/my-spring/my-spring.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" filepath="$PROJECT_DIR$/mybatis-demo/mybatis-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mybatis-generator-demo/mybatis-generator-demo.iml" filepath="$PROJECT_DIR$/mybatis-generator-demo/mybatis-generator-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mybatis-spring-mvc-demo/mybatis-spring-mvc-demo.iml" filepath="$PROJECT_DIR$/mybatis-spring-mvc-demo/mybatis-spring-mvc-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/netty-demo/netty-demo.iml" filepath="$PROJECT_DIR$/netty-demo/netty-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rxjava-demo/rxjava-demo.iml" filepath="$PROJECT_DIR$/rxjava-demo/rxjava-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/servlet-demo/servlet-demo.iml" filepath="$PROJECT_DIR$/servlet-demo/servlet-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-demo/spring-demo.iml" filepath="$PROJECT_DIR$/spring-demo/spring-demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/spring-framework-samples/spring-framework-samples.iml" filepath="$PROJECT_DIR$/spring-framework-samples/spring-framework-samples.iml" />
-      <module fileurl="file://$PROJECT_DIR$/zxing-demo/zxing-demo.iml" filepath="$PROJECT_DIR$/zxing-demo/zxing-demo.iml" />
     </modules>
   </component>
 </project>
