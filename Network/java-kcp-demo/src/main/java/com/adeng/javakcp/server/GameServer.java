@@ -48,8 +48,7 @@ public class GameServer extends KcpServer {
 
     public synchronized void onTick() {
         var tickStart = Instant.now();
-
-        System.out.println("GameServer.onTick:" + tickStart);
+        System.out.println("GameServer.onTick: Session " + GameSessionManager.getSessions().size());
     }
 
     public void onServerShutdown() {

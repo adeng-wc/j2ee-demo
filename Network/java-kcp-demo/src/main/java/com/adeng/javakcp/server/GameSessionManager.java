@@ -16,11 +16,13 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public class GameSessionManager {
     private static final DefaultEventLoop logicThread = new DefaultEventLoop();
-    private static final ConcurrentHashMap<Ukcp, GameSession> sessions = new ConcurrentHashMap<>();
+    @Getter private static final ConcurrentHashMap<Ukcp, GameSession> sessions = new ConcurrentHashMap<>();
 
     @Getter private static final KcpListener listener = new KcpListener() {
         @Override
         public void onConnected(Ukcp ukcp) {
+            System.out.println("KcpListener.onConnected: 有连接进来,当前连接");
+
             int times = 0;
             GameServer server = Main.getGameServer();
             while (server == null) {//Waiting server to establish
@@ -62,6 +64,10 @@ public class GameSessionManager {
 
         @Override
         public void handleReceive(ByteBuf buf, Ukcp kcp) {
+            byte[] bytes = new byte[buf.readableBytes()];
+            buf.getBytes(buf.readerIndex(), bytes);
+            System.out.println("KcpListener.handleReceive: 收到消息 " + new String(bytes));
+
             byte[] byteData = byteBufToArray(buf);
             logicThread.execute(() -> {
                 try {
@@ -82,6 +88,7 @@ public class GameSessionManager {
 
         @Override
         public void handleClose(Ukcp ukcp) {
+            System.out.println("KcpListener.handleClose: 收到消息 ");
             GameSession conversation = sessions.get(ukcp);
             if (conversation != null) {
                 conversation.handleClose();
