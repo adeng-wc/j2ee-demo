@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>java-kcp-demo</module>
+        <module>netty-demo</module>
     </modules>
 
     <properties>

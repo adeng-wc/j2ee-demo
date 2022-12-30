@@ -36,7 +36,6 @@
         <module>msgpack-demo</module>
         <module>Leetcode</module>
         <module>httpclient-demo</module>
-        <module>netty-demo</module>
         <module>EncryptAndDncrypt</module>
         <module>json-demo</module>
         <module>minio-client-demo</module>

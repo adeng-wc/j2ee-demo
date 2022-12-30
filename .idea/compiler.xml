@@ -59,7 +59,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="my-mvcframework" options="-verbose -bootclasspath /Library/Java/JavaVirtualMachines/jdk1.8.0_351.jdk/Contents/Home/jre/lib/rt.jar" />
+      <module name="my-mvcframework" options="-verbose -bootclasspath /Library/Java/JavaVirtualMachines/jdk-17.0.5.jdk/Contents/Home/lib/rt.jar" />
       <module name="my-spring" options="-verbose -bootclasspath /Library/Java/JavaVirtualMachines/jdk1.8.0_351.jdk/Contents/Home/jre/lib/rt.jar" />
     </option>
   </component>
